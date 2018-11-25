@@ -1,0 +1,27 @@
+ion-modal-view(has-header='true' has-footer='true',  ng-controller="editExtenderNameModalController")
+  ion-header-bar.bar-dark
+    h1.title(translate) Edit Extender Name
+    
+  //- form(name="editExtenderNameForm", ng-submit='wizard.extenderSetup.updateExtenderName()', novalidate)  
+  ion-content
+    .wizard
+      .wizard-section-intro
+        p(translate) Click in the space below to edit the name of the room where you installed the extender (for example "Kitchen" or "Kid's Bedroom"):
+                
+        .text-center
+          h3 {{wizard.extenderSetup.editExtenderName}}
+          p.korner-info (EUI64: {{wizard.extenderSetup.selectedExtender.eui64}})
+        
+        form(novalidate name="myForm")
+          md-card
+            md-input-container
+              label Extender name
+              input(type="text" name="name1" ng-model="wizard.extenderSetup.editExtenderName" required)    
+              div(ng-messages="myForm.name1.$error")
+                div.text-nowrap(ng-message="required") Extender name is required 
+  ion-footer-bar
+    .row.wizard-section-intro(layout="col" layout-sm="row" layout-align="center")
+      .col.col-30.text-center.col-center
+        md-button.md-raised(flex="50" ng-click='wizard.extenderSetup.closeModal()', translate) Cancel
+      .col.col-30.text-center.col-center
+        md-button.md-raised.md-primary(flex="50" ng-click='wizard.extenderSetup.updateExtenderName()' ng-disabled="!wizard.extenderSetup.editExtenderName", translate) Save

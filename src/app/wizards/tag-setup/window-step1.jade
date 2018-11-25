@@ -1,0 +1,18 @@
+.wizard-section-intro
+  h3(translate) Attaching Tag
+    
+md-card.md-padding.text-center(layout-align="center center")
+  h4(translate) Apply Tag to frame encasing glass pane (if too narrow, apply to glass pane itself).
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/window_slide_up_1.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 1")
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/window_slide_left_right_1.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 2")  
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/window_swing_1.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 3")  
+md-card.md-padding.text-center(layout-align="center center")
+  h4(translate) Apply snugly in corner, so two flat sides of Tag are against adjacent frame.
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/window_slide_up_2.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 1")
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/window_slide_left_right_2.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 2")
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/window_swing_2.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 3")
+md-card.md-padding.text-center(layout-align="center center")
+  h4(translate) The Tag must be applied to the moving portion of the window (so that it moves when opened).
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/window_slide_up_3.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 1")
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/window_slide_left_right_3.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 2")
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/window_swing_3.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 3")  

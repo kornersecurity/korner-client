@@ -1,0 +1,8 @@
+md-list-item.md-caption(ng-class='{"korner-alpha-item" : extender.isBypassed}')
+  img.img.thumbnail24(ng-src='{{extenderStateImage()}}')    
+  p.korner-gutter {{ extender.extender_name }}
+    span.korner-info.korner-text-color-energized(ng-if="extender.extenderIssuesText.length > 0")
+      | &nbsp{{ extender.extenderIssuesText }}
+  .pull-right.text-nowrap
+    p.korner-info.korner-text-color-low-priority
+      | {{ extender.extenderStatusText }}

@@ -1,0 +1,7 @@
+md-bottom-sheet.md-list.md-has-header
+  md-subheader Quick Actions
+  md-list
+    md-list-item(ng-repeat='item in actionItems')
+      md-button.md-list-item-content(ng-click='listItemClick($index)')
+        md-icon(md-svg-src='{{item.icon}}', fill='#666')
+        span.md-inline-list-icon-label &nbsp; &nbsp; {{ item.name }}

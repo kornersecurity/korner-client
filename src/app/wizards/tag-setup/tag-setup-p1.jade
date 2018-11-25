@@ -1,0 +1,39 @@
+.wizard-section-intro
+  h3(translate) Your Tags
+    
+section.md-padding
+  md-button.md-raised.md-primary(layout-fill, ng-click="wizard.tagSetup.nextPage()", translate, style="margin: 0px;") Add Tag
+
+md-card  
+  //- show active tags
+  .dashboard-section.bg-grey(ng-if="wizard.tagSetup.p1.totalActiveTags > 0")
+    span(translate) Connected tags
+    span.pull-right.text-nowrap
+     .dashboard-section-info
+       ng-pluralize(count='wizard.tagSetup.p1.totalActiveTags' when='{"0": "No tags", "1": "1 tag", "other": "{} tags"}')
+  md-list.korner-no-padding(can-swipe="false" ng-if="wizard.tagSetup.p1.totalActiveTags > 0")
+    md-list-item.wizard-list.korner-item-button-right(ng-repeat="tag in wizard.tagSetup.tags | activeTags")
+      p.message {{tag.tag_name }}
+        //- br
+        //- span.korner-info.korner-text-color-low-priority(translate) FIRMWARE VERSION: {{firmwareVersionToHex(tag)}}
+      .pull-right.text-nowrap
+        p.info {{tag.state_description}}
+        md-button.korner-list-md-button.md-primary(md-theme="alarmTheme" ng-click="wizard.tagSetup.p1.editTag(tag)", translate) Edit
+        md-button.korner-list-md-button.md-warn.md-hue-2(ng-if="wizard.tagSetup.canDeleteTags === true" ng-click="wizard.tagSetup.p1.deactivateTag(tag)", translate) Remove        
+      md-divider 
+  //-  show problem tags
+  .dashboard-section.bg-grey(ng-if="wizard.tagSetup.p1.totalMissingTags > 0")
+    span(translate) Disconnected tags
+    span.pull-right.text-nowrap
+     .dashboard-section-info
+       ng-pluralize(count='wizard.tagSetup.p1.totalMissingTags' when='{"0": "No tags", "1": "1 tag", "other": "{} tags"}')
+  md-list.korner-no-padding(can-swipe="false" ng-if="wizard.tagSetup.p1.totalMissingTags > 0")
+    md-list-item.wizard-list.korner-item-button-right(ng-repeat="tag in wizard.tagSetup.tags | missingTags")
+      p.message {{tag.tag_name }}
+        //- br
+        //- span.korner-info.korner-text-color-low-priority(translate) FIRMWARE VERSION: {{firmwareVersionToHex(tag)}}
+      .pull-right.text-nowrap
+        p.info {{tag.state_description}}
+        md-button.korner-list-md-button.md-primary(md-theme="alarmTheme" ng-click="wizard.tagSetup.p1.editTag(tag)", translate) Edit
+        md-button.korner-list-md-button.md-warn.md-hue-2(ng-if="wizard.tagSetup.canDeleteTags === true" ng-click="wizard.tagSetup.p1.deactivateTag(tag)", translate) Remove        
+      md-divider 

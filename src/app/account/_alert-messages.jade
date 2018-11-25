@@ -1,0 +1,5 @@
+.div(ng-repeat='alert in alerts' ng-if="alerts.length > 0") 
+  .item.wrap-text.item-divider.item-energized(id='alertDiv')
+    | {{alert.msg}}
+    
+br

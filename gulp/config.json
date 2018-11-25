@@ -1,0 +1,105 @@
+ {
+
+  "web": {
+    "config": {
+      "src": "src/config/**",
+      "dest": "www/app/config",
+      "watch": "src/config/**"
+    },
+    "img": {
+      "src": "src/img/**",
+      "dest": "www/app/img",
+      "watch": "src/img/**"
+    },
+    "fonts": {
+      "src": [
+        "src/vendor/**/fonts/**/*.*"
+      ],
+      "dest": "www/fonts",
+      "watch": [
+        "src/vendor/fonts/**/*.*"
+      ]
+    },
+    "l10n": {
+      "extract": {
+        "src": "www/app/views/**/*.html",
+        "dest": "src/pot/",
+        "output": "korner_mobile_l10n.pot"
+
+      },
+      "translate": {
+        "src": "src/l10n/*.po",
+        "dest": "www/app/l10n"
+
+      }
+    },
+
+    "bower": {
+      "dest": "www/lib",
+      "base": "src/bower_components",
+      "output": "vendor.bundle.js",
+      "watch": "src/vendor/**/*.js"
+    },
+
+
+    "js": {
+      "src": [
+        "src/app/app.js",
+        "src/app/**/*.js",
+        "!src/app/**/*.spec.js",
+        "!src/app/**/*-spec.js",
+        "!src/app/*-spec.js",
+        "!src/app/**/*.e2e.js"
+      ],
+      "dest": "www/app/js",
+      "output": "app.bundle.js",
+      "watch": [
+        "src/app/**/*.js"
+      ]
+    },
+
+    "config": {
+      "src": [
+        "src/config/*.json"
+      ],
+      "dest": "www/app/config",
+      "watch": [
+        "src/conf/*.json"
+      ]
+    },
+    "views": {
+      "src": [
+        "src/app/**/*.jade",
+        "!src/app/index.jade",
+        "!src/**/_*.jade"
+      ],
+      "dest": "www/app/views",
+      "index": {
+        "src": "src/app/index.jade",
+        "dest": "www"
+      },
+      "watch": "src/**/*.jade"
+    },
+    "css": {
+      "sass": {
+        "src": [
+          "src/sass/**/*.scss"
+        ],
+        "dest": "www/css"
+      },
+      "vendor": {
+        "src": [
+          "src/vendor/base/**/*.css",
+          "src/vendor/lazy/**/*.css"
+        ],
+        "dest": "www/css"
+      },
+      "watch": [
+        "src/vendor/base/**/*.css",
+        "src/vendor/lazy/**/*.css",
+        "src/sass/**/*.scss"
+      ],
+      "dest": "www/css"
+    }
+  }
+}

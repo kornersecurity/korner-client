@@ -1,0 +1,50 @@
+language: node_js
+
+node_js:
+  - 0.10.25
+
+env:
+  global:
+    - CI_REPORT=shippable/testresults/junit.xml
+    - secure: 
+    - SLACK_ORG=kornersafe PROJECT=korner_client
+
+
+install:
+  - npm install -g karma karma-cli bower gulp
+  - npm install
+  - bower install
+# Make folders for the reports, and create the SQL db
+before_script:
+  - mkdir -p shippable/testresults
+
+
+script:
+  - gulp karma:inject
+  - gulp karma:test
+  # - mv shippable/codecoverage/*/coverage.xml shippable/codecoverage
+after_script:
+
+after_success :
+  # - if [ "$BRANCH" == "master" ] ; then DEPLOY_SERVER="prod" ; else DEPLOY_SERVER="staging" ; fi
+  # - echo $DEPLOY_SERVER
+  # - git push  git@heroku.com:avi-hot-static.git $COMMIT:master --force
+  # #- git push  git@heroku.com:avi-hot-static.git master --force
+  # - echo $BRANCH
+  # - echo $BRANCH
+  # - echo $BUILD_NUMBER
+  # - echo $BUILD_URL
+  # - echo $COMMIT
+  # - echo $DEBIAN_FRONTEND
+  # - echo $JOB_ID
+  # - gulp
+
+
+after_failure:
+  - python tools/slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN --emoji ":bangbang:"
+
+after_success:
+  - python tools/slack_notifier.py --project $PROJECT --org $SLACK_ORG --token $SLACK_TOKEN --emoji ":thumbsup:" -s
+
+notifications:
+   email: false

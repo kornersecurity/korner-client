@@ -1,0 +1,24 @@
+div.12HourTimePickerChildDiv
+  div.row
+    span.button-small.col.col-25
+      button.button.button-clear.button-small.button-dark.timePickerArrows.marginBottom10(type="button" ng-click="increaseHours()")
+        i.icon.ion-chevron-up
+      div.ipBoxes.timePickerBoxText(ng-bind="time.hours")
+      button.button.button-clear.button-small.button-dark.timePickerArrows.marginTop10(type="button" ng-click="decreaseHours()")
+        i.icon.ion-chevron-down
+          
+    label.col.col-10.timePickerColon &nbsp:&nbsp
+    span.button-small.col.col-25
+      button.button.button-clear.button-small.button-dark.timePickerArrows.marginBottom10(type="button" ng-click="increaseMinutes()")
+        i.icon.ion-chevron-up
+      div.ipBoxes.timePickerBoxText(ng-bind="time.minutes")
+      button.button.button-clear.button-small.button-dark.timePickerArrows.marginTop10(type="button" ng-click="decreaseMinutes()")
+        i.icon.ion-chevron-down
+    
+    label.col.col-10.timePickerColon(nf-if="") &nbsp:&nbsp
+    span.button-small.col.col-25(ng-if="format === 12")
+      button.button.button-clear.button-small.button-dark.timePickerArrows.marginBottom10(type="button" ng-click="changeMeridian()")
+        i.icon.ion-chevron-up
+      div.ipBoxes.timePickerBoxText(ng-bind="time.meridian")
+      button.button.button-clear.button-small.button-dark.timePickerArrows.marginTop10(type="button" ng-click="changeMeridian()")
+        i.icon.ion-chevron-down

@@ -1,0 +1,82 @@
+ion-view(view-title='Debug Info')
+  ion-nav-buttons(side='left')
+    a.button(ng-click="onBack()").icon-left.ion-chevron-left.button-clear.button-dark Back
+  ion-content(scroll='true')
+    .card
+      .item.item-divider
+        | App Version
+      .item.item-text-wrap
+        small {{$root.appRuntime.version}}
+    .card
+      .item.item-divider
+        | Server Version
+      .item.item-text-wrap
+        small {{serverVersion}}
+    .card
+      .item.item-divider
+        | Database Version
+      .item.item-text-wrap
+        small {{databaseVersion}}
+    .card
+      .item.item-divider
+        | Web Service URL
+      .item.item-text-wrap
+        small {{webServiceUrl}}
+    .card
+      .item.item-divider
+        | Web Socket URI
+      .item.item-text-wrap
+        small {{webSocketUri}}
+        br
+        small {{isConnected}}
+    .card
+      .item.item-divider
+        | Image Server URL
+      .item.item-text-wrap
+        small {{imageServerUrl}}
+
+    .card
+      .item.item-divider
+        | Application Language
+      .item.item-text-wrap
+        small
+        ion-radio(ng-model="currentLanguage" value="en" ng-change="setLanguage('en')") English
+        ion-radio(ng-model="currentLanguage" value="es" ng-change="setLanguage('es')") Spanish
+
+    .card
+      .item.item-divider
+        | Message Testing
+      .item.item-text-wrap
+        .button-bar
+          a.button.button-outline.button-positive(ng-click="armFob()") Arm
+          a.button.button-outline.button-positive(ng-click="disarmFob()") Disarm
+          a.button.button-outline.button-positive(ng-click="silenceFob()") Silence
+        br
+        .button-bar
+          a.button.button-outline.button-positive(ng-click="startPairing()") Start Pairing
+          a.button.button-outline.button-positive(ng-click="stopPairing()") Stop Pairing
+        br
+        .button-bar
+          a.button.button-outline.button-positive(ng-click="getFobInfo()") Get Fob Info
+          a.button.button-outline.button-positive(ng-click="getFobStatus()") Get Fob Status
+        br
+        .button-bar
+          a.button.button-outline.button-positive(ng-click="getTags()") Get Tags
+          a.button.button-outline.button-positive(ng-click="removeTags()") Remove Tags
+        br
+        .button-bar
+          a.button.button-outline.button-positive(ng-click="includeTags()") Include Tags
+          a.button.button-outline.button-positive(ng-click="excludeTags()") Exclude Tags
+        br
+        .button-bar
+          a.button.button-outline.button-positive(ng-click="getFobSettings()") Get Fob Settings
+          a.button.button-outline.button-positive(ng-click="setFobSettings()") Set Fob Settings
+    .card
+      .item.item-divider
+        | Event Simulating
+      .item.item-text-wrap
+        .button-bar
+          a.button.button-outline.button-positive(ng-click="pauseResumeRefresh()") Pause/Resume Refresh
+    .card
+      p Who you going to call
+      a.button.button-block.button-positive(ng-click="dialSimon()") Don't Press Me

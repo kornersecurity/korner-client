@@ -1,0 +1,55 @@
+md-content.md-padding(flex)
+  form(novalidate name="armingProfileForm" ng-controller="armingProfileController")        
+  
+    md-card(layout='column' flex ng-if="!fobConfiguration.selectedProfile")
+      .dashboard-section.bg-grey
+        span(translate) Zones
+      md-list.korner-no-padding(can-swipe="false" )
+        md-list-item.wizard-list.korner-item-button-right(ng-repeat="profile in fobConfiguration.selectedFob.getFobProfiles()" ng-class="{'korner-list-item-selected': profile.isActive}")
+          p.message {{profile.profileName}} ({{profile.tags.length}} Tags) &nbsp
+            span(ng-if="profile.isActive" translate style="color: red;") ACTIVE &nbsp
+            md-button.korner-list-md-button.md-primary(ng-if="!profile.isActive" ng-click="fobConfiguration.setActiveProfile($index)", translate) Set active
+          .pull-right.text-nowrap
+            md-button.korner-list-md-button.md-primary(ng-if="$index !== 0" md-theme="alarmTheme" ng-click="fobConfiguration.editProfile(profile, $index)", translate) edit
+            md-button.korner-list-md-button.md-warn.md-hue-2(ng-if="$index !== 0" ng-click="fobConfiguration.removeProfile($index)", translate) del        
+          md-divider
+      br
+      md-button.md-raised.md-primary(translate ng-click="fobConfiguration.addProfile()") New Zone
+      
+
+
+    m
+    
+    .text-center(ng-if="fobConfiguration.selectedProfile.canDelete && !fobConfiguration.editingProfile")
+      md-button.md-raised.md-warn( translate) delete zone
+      
+        
+      //- show active tags
+    md-card(flex ng-if="fobConfiguration.selectedProfile")
+      md-input-container()
+        label Zone Name
+        input(type="text", focus="true", name="profileName" ng-model="fobConfiguration.selectedProfile.profileName" ng-change="fobConfiguration.checkProfileChanged()" required)
+        div(ng-messages="armingProfileForm.profileName.$error")
+          div.text-nowrap(ng-message="required") Zone name is required 
+      md-divider
+
+      .dashboard-section.bg-grey
+        span(translate) Tags
+        span.pull-right.text-nowrap
+         .dashboard-section-info
+           ng-pluralize(count='fobConfiguration.selectedFob.tags.tags.length' when='{"0": "No Tags", "1": "1 Tag", "other": "{} Tags"}')
+      //- md-content(ng-style="($mdMedia('sm'))? {'max-height':'190px'} : {}")
+      md-content(flex)
+        md-list.korner-no-padding(flex)
+          md-checkbox(ng-repeat="tag in fobConfiguration.tags" ng-model="tag.isSelected" ng-change="fobConfiguration.checkProfileChanged()")
+            | {{ tag.tagFullName }} &nbsp
+            //- span(ng-if="tag.tagIssuesText.length > 0")
+            //-   | ({{ tag.tagIssuesText }})
+      md-divider
+      br
+        
+      section(layout='row', layout-align='center')
+        md-button.md-raised(ng-click='fobConfiguration.cancelProfileChanges()' translate) Cancel
+        md-button.md-raised.md-primary(id='resetButton' ng-disabled='armingProfileForm.$invalid || fobConfiguration.fobProfileChanged === false || fobConfiguration.profileValid === false', ng-click='fobConfiguration.saveProfile()' translate) Save Zone
+
+  

@@ -1,0 +1,28 @@
+.wizard-section-intro(ng-if="!wizard.extenderSetup.hasTags")
+  h3(translate) Extender Setup Completed
+  p(translate) The extender has been setup successfully!
+    br
+    translate Click 'done' below to continue.
+  
+.wizard-section-intro(ng-if="wizard.extenderSetup.hasTags")
+  h3(translate) Connecting Tags That Are Already Set up
+  md-list  
+    md-list-item.korner-step-item 
+      span.wizard-step-number &nbsp1&nbsp
+      p(translate) Unplug micro-USB from the back of the Stick and Extenders (as opposed to unplugging from the wall)
+
+    md-list-item.korner-step-item
+      span.wizard-step-number &nbsp2&nbsp
+      p(translate) For each Tag, slide cover off and wait for 1 blink to change to 2 blinks in rapid succession (with a pause in between), then slide cover back on. For Tags with 3 blinks, replace cover and wait until Step 5.
+      
+    md-list-item.korner-step-item
+      span.wizard-step-number &nbsp3&nbsp
+      p(translate) Plug micro-USB back into the Stick and Extenders
+    
+    md-list-item.korner-step-item
+      span.wizard-step-number &nbsp4&nbsp
+      p(translate) For each Tag, slide cover off and slide back on.
+    
+    md-list-item.korner-step-item
+      span.wizard-step-number &nbsp5&nbsp
+      p(translate) For those Tags that weren't connected to your Stick prior to this Extender setup (3 blinks), after completing Extender setup go to Settings > Tag Setup and press 'Add Tag' to connect those Tags.

@@ -1,0 +1,36 @@
+
+.wizard-section-intro
+  h3(translate) Connecting the Stick
+  p(translate) Insert the Korner Stick into an open port on your router and plug the Stick into a power source using the USB cable that was provided.
+  p(translate) Once installed, the Stick will begin communicating with the Korner server. This may take several seconds. If the connection process takes more than one minute, then you should click on 
+    span.next(translate) &nbspManual Setup
+    span &nbspbelow.
+    
+    br
+    img.image-example.korner-wizard-image(src='app/img/korner-fob.png' ng-class="{'searching':!wizard.fobSetup.fobFound}")
+    .text-center
+      ion-spinner(icon="lines", ng-if="wizard.fobSetup.searchingFob && wizard.fobSetup.currentRetryLoops !== 0")
+      i.fa.fa-exclamation-triangle.fa-2x.problem(ng-if="wizard.fobSetup.currentRetryLoops !== 0 && !wizard.fobSetup.searchingFob && !wizard.fobSetup.fobFound")
+      i.fa.fa-check.fa-2x.success(ng-if="wizard.fobSetup.fobFound")
+    div(ng-if="!wizard.fobSetup.fobFound")
+      h3.text-center(ng-if="wizard.fobSetup.currentRetryLoops !== 0", translate) Searching for Stick
+      .text-center
+        a.button.button-clear.button-positive.wizard-link(ng-if="!wizard.fobSetup.fobFound && wizard.fobSetup.canRetry && !wizard.fobSetup.searchingFob && wizard.fobSetup.currentRetryLoops !== 0", ng-click="wizard.fobSetup.retryAutoSetup()", translate) Retry
+      div(ng-if="!wizard.fobSetup.fobFound && wizard.fobSetup.canRetry && !wizard.fobSetup.searchingFob && wizard.fobSetup.currentRetryLoops !== 0")
+        p(translate) There was a problem finding the Stick. Please make sure the Stick is properly connected to your router and either click 
+          span.next(translate) &nbspRetry&nbsp
+          translate above or 
+          span.next(translate) &nbspManual Setup
+          span &nbspbelow.
+
+      br
+      br
+      p(transalte) If the connection process takes more than one minute, then you should try 
+        span.next(translate) &nbspManual Setup
+        span &nbspbelow.
+        span.pull-right
+          a.button.button-clear.button-positive.wizard-link(ng-if="!wizard.fobSetup.fobFound", ng-click="wizard.fobSetup.showManualSetup()", translate) Manual Setup
+    div(ng-if="wizard.fobSetup.fobFound")
+      h3.text-center(translate) {{wizard.fobSetup.selectedFob.eui64}}
+      h3.text-center(translate) Stick Connected
+    

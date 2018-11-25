@@ -1,0 +1,30 @@
+
+md-dialog(flex="60" flex-sm="100" layout="column")
+  
+  md-toolbar.md-primary(flex)
+    .md-toolbar-tools
+      h2.korner-text-color-white.md-flex(translate) {{ button }} Message
+            
+
+  form(novalidate name="myForm")
+    md-dialog-content(flex)
+      div(ng-show="readonly") 
+        p "{{messageText}}"
+        p(transalte) {{ prompt }}
+      div(ng-show="!readonly")   
+        p(translate) {{ prompt }}
+        md-input-container
+          label(translate) Message
+          textarea(ng-model='messageText', name="messageField" columns='1', md-maxlength='250' required)
+          div(ng-messages="myForm.messageField.$error")
+            div.text-nowrap(ng-message="required" translate) Message is required
+
+          
+  div(flex layout="row")
+    ion-footer-bar
+      .row.wizard-section-intro(layout="col" layout-sm="row" layout-align="center")
+        .col.col-30.text-center.col-center
+          md-button.md-raised.md-accel(ng-click="cancel()" translate) Cancel
+        .col.col-30.text-center.col-center
+          md-button.md-raised.md-primary(ng-click="post()" translate) {{ button }}
+      

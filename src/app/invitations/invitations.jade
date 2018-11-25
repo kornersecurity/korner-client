@@ -1,0 +1,32 @@
+
+md-dialog(flex)
+  
+  md-toolbar.md-primary(flex md-theme="wizardTheme")
+    .md-toolbar-tools
+      h2.korner-text-color-white.md-flex(translate) Circle Invitations
+      span(flex)
+      md-button.md-icon-button(ng-click="invitationScreen.closeModal()" ng-if="invitationScreen.showCloseButton === true")
+        md-icon(md-svg-src="app/img/ic_close_white_24px.svg")
+          
+  md-dialog-content
+    md-content(id="kornerInvitations")
+      
+    .dashboard-section.bg-grey(ng-if="invitationScreen.invitations.length")
+      span(translate) New Invitations
+      span.pull-right.text-nowrap
+       .dashboard-section-info
+         ng-pluralize(count='invitationScreen.invitations.length' when='{"0": "No invitations", "1": "1 invitation", "other": "{} invitations"}')
+    ion-list(can-swipe="false")
+      ion-item.circle-feed(ng-repeat="invitation in invitationScreen.invitations")
+        p.message {{invitation.invite_message}}
+        p.info(translate) {{invitation.first_name}} {{invitation.last_name}}
+        p.buttons.korner-text-center
+          button.button.button-small.button-positive(ng-click="invitationScreen.acceptInvitation(invitation)", translate) Accept&nbsp
+          | &nbsp&nbsp
+          button.button.button-small(ng-click="invitationScreen.declineInvitation(invitation)", translate) Decline&nbsp       
+
+          
+              
+      .card(ng-if="invitationScreen.invitations.length === 0 && invitationScreen.loadingInvitations === false")
+        .item.item-text-wrap.text-center(translate) You have no new invitations at this time.
+        

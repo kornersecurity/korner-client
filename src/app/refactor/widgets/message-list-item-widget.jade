@@ -1,0 +1,8 @@
+md-list-item.item.item-avatar.circle-feed.item-text-wrap.md-3-line
+  img(ng-src='{{userImageUrl}}')
+  p {{message.message}}
+  p.korner-info.korner-text-color-low-priority {{ userName }}, {{ message.updated_at | amCalendar }} 
+  p.korner-info(ng-if="isMessageOwner === true")
+    md-button.korner-list-md-button.md-primary(md-theme="alarmTheme" ng-click="onEditMethod(something, message)", ng-hide="message.canEdit()", translate) Edit
+    | &nbsp&nbsp
+    md-button.korner-list-md-button.md-warn(md-theme="alarmTheme" ng-click="onDeleteMethod(something, message)", ng-hide="message.canDelete()", translate) Remove

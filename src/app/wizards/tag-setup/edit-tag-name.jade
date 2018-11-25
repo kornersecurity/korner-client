@@ -1,0 +1,50 @@
+ 
+md-content.md-padding.wizard-selection(flex layout="column")
+  .text-center
+    h4 Tag EUI64: 
+      strong {{wizard.tagSetup.editedTag.eui64}}
+
+  //-   h3 {{wizard.tagSetup.editTagName}} {{ wizard.tagSetup.editedTag.portal_type_name }}
+
+  form(name="myForm" novalidate='novalidate' ng-keypress='catchEnter($event)' keyboard-attach)
+    md-content
+      md-input-container
+        label(translate) Tag Name
+      md-input-container
+        input(type="text", name="tagName" ng-model="wizard.tagSetup.editTagName" ng-change="wizard.tagSetup.canSave()" required)
+        div(ng-messages="myForm.tagName.$error")
+          div.text-nowrap(ng-message="required") Tag name is required 
+          
+      md-input-container
+        label(translate) Entry Type
+      md-input-container
+        md-select(name="entryType" ng-model="wizard.tagSetup.editPortalTypeId" ng-change="wizard.tagSetup.portalTypeChanged()" required)
+          md-option(ng-repeat="setupType in wizard.tagSetup.setupTypes" value="{{setupType.id}}") {{setupType.title}}
+        div(ng-messages="myForm.entryType.$error")
+          div.text-nowrap(ng-message="required") Entry Type is required 
+          
+      md-input-container
+        label(translate) Opening Mechanism
+      md-input-container
+        md-select(name="openingMechanism" ng-model="wizard.tagSetup.editPortalMechanismId" ng-change="wizard.tagSetup.canSave()")
+          md-option(ng-repeat="openingMechanism in wizard.tagSetup.openingMechanisms" value="{{openingMechanism.id}}") {{openingMechanism.name}}
+          
+      md-input-container
+        label(translate) Entry Characteristics
+      md-input-container
+        md-checkbox.md-primary(md-no-ink ng-model="wizard.tagSetup.hasScreen" ng-change="wizard.tagSetup.canSave()")
+          .wrap-text(translate) Has swinging or sliding screen <br/>(not if it is fixed)
+        md-checkbox.md-primary(md-no-ink ng-model="wizard.tagSetup.hasBlinds" ng-change="wizard.tagSetup.canSave()")
+          .wrap-text(translate) Has blinds, curtains, or wooden shutters
+        md-checkbox.md-primary(md-no-ink ng-model="wizard.tagSetup.hasHorizontalBlinds" ng-if="wizard.tagSetup.hasBlinds" ng-change="wizard.tagSetup.canSave()")
+          .wrap-text(translate) Has horizontal blinds
+
+      br
+      br
+      br
+ion-footer-bar
+  .row.wizard-section-intro(layout="col" layout-sm="row" layout-align="center")
+    .col.col-30.text-center.col-center
+      md-button.md-raised(flex="50" ng-click='wizard.tagSetup.closeModal()',translate) Cancel
+    .col.col-30.text-center.col-center
+      md-button.md-raised.md-primary(flex="50" ng-click='wizard.tagSetup.updateTag()' ng-disabled="myForm.$invalid || wizard.tagSetup.canSaveEditedTag === false", translate) Save

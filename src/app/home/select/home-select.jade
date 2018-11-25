@@ -1,0 +1,53 @@
+
+md-content(layout="column" ng-if="fobs.length > 0" layout-fill )
+  md-list(ng-if="$mdMedia('sm')")  
+    md-subheader.md-no-sticky(ng-if="hasOwnedFobs" translate) Your Homes
+    md-list-item.md-3-line.korner-cursor(ng-if="hasOwnedFobs" ng-click="select(fob)" ng-repeat="fob in fobs | filter:{isAccountOwner:'true'} | orderBy:'fob_name' ")
+      img.thumbnail64.md-avatar(ng-src='{{fob.imageUrl}}')
+      .md-list-item-text
+        h4 {{fob.fob_name}}
+        ks-fob-address(fob='fob' show-version='false')
+        ks-fob-status-banner(fob='fob' ng-if="fob.getFobUser().hasArmDisarmFeature()")
+          
+    br
+    br
+    md-divider
+    br
+    md-subheader.md-no-sticky(ng-show="hasCircleFobs" translate) Security Circle Homes
+    md-list-item.md-3-line.korner-cursor(ng-show="hasCircleFobs" ng-click="select(fob)" ng-repeat="fob in fobs | filter:{isAccountOwner:'false'} | orderBy:'fob_name'")
+      img.thumbnail64.md-avatar(ng-src='{{fob.imageUrl}}')
+      .md-list-item-text
+        h4 {{fob.fob_name}}
+        ks-fob-address(fob='fob')
+        ks-fob-status-banner(fob='fob' ng-if="fob.getFobUser().hasArmDisarmFeature()")
+
+  md-list(ng-if="$mdMedia('gt-sm') && !$mdMedia('sm')")   
+    md-subheader.md-no-sticky(ng-show="hasOwnedFobs" translate) Your Homes
+    md-list-item.md-margin(ng-show="hasOwnedFobs" layout="row" layout-sm='column' layout-align="space-around center" layout-wrap)
+      md-card.korner-cursor.korner-home-select-card(ng-click="select(fob)" ng-repeat="fob in fobs | filter:{isAccountOwner:'true'} | orderBy:'fob_name' " style="max-width: 280px;")
+        img.md-card-image(ng-src='{{fob.imageUrl}}')
+        //- md-card-content(layout-fill)
+        .korner-home-select-margin
+          h4 {{fob.fob_name}}
+          ks-fob-address(fob='fob')
+        ks-fob-status-banner(fob='fob' ng-if="fob.getFobUser().hasArmDisarmFeature()")
+    br
+    br
+    md-divider
+    br
+    md-subheader.md-no-sticky(ng-show="hasCircleFobs" translate) Security Circle Homes
+    md-list-item.md-margin(ng-show="hasCircleFobs" layout="row" layout-sm='column' layout-align="space-around center" layout-wrap)
+      md-card.korner-cursor.korner-home-select-card(ng-click="select(fob)" ng-repeat="fob in fobs | filter:{isAccountOwner:'false'} | orderBy:'fob_name' " style="max-width: 280px;")
+        img.md-card-image(ng-src='{{fob.imageUrl}}')
+        //- md-card-content(layout-fill)
+        .korner-home-select-margin
+          h4 {{fob.fob_name}}
+          ks-fob-address(fob='fob')
+        ks-fob-status-banner(fob='fob' ng-if="fob.getFobUser().hasArmDisarmFeature()")
+
+md-content.md-padding(layout="row" ng-if="fobs.length === 0")
+  section.korner-text-center(layout-fill)
+    md-button.md-raised(flex ng-click="$root.showSetupScreen({wizardType:wizardType.WELCOME})" style='min-width:220px !important;')
+      br
+      img(src='app/img/korner_icon_blue.png' style='max-width:170px !important;')
+      h5(translate) ADD A HOME

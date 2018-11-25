@@ -1,0 +1,20 @@
+.wizard
+  .wizard-section-intro
+    h3(translate) Installed Extenders
+    p(translate) Your currently installed extenders are listed below. 
+      
+  section.md-padding
+    md-button.md-raised.md-primary(layout-fill, ng-click="wizard.extenderSetup.nextPage()", translate, style="margin: 0px;") Add Extender
+
+  md-card  
+  .dashboard-section.bg-grey
+    span(translate) Installed Extenders
+    span.pull-right.text-nowrap
+     .dashboard-section-info
+       ng-pluralize(count='wizard.extenderSetup.extenderCount' when='{"0": "No extenders", "1": "1 extender", "other": "{} extenders"}')
+  ion-list(can-swipe="false")
+    ion-item.wizard-list.item-button-right.korner-item-button-right(ng-repeat="extenderID in wizard.extenderSetup.extenderKeys")
+      p.message {{wizard.extenderSetup.extenders[extenderID].extender_name || wizard.extenderSetup.extenders[extenderID].eui64}}
+      md-button.buttons.korner-list-md-button.md-primary(md-theme="alarmTheme" ng-click="wizard.extenderSetup.p1.editExtender(wizard.extenderSetup.extenders[extenderID])", translate) Edit
+      //- ion-option-button.button-assertive(ng-click="wizard.extenderSetup.p1.deactivateExtender(extender)", translate) Remove        
+      

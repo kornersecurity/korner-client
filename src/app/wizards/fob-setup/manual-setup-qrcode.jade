@@ -1,0 +1,44 @@
+ion-modal-view(has-header='true' has-footer='true',  ng-controller="fobSetupController.manualSetupQRCodeModalController")
+  ion-header-bar.bar-dark
+    h1.title(translate) Manual Stick Setup
+  
+  ion-content
+    .wizard
+      .wizard-section-intro
+        h3(translate) Bar Code Scanner
+        p(translate) When the camera on your phone is activated, position the Stick and phone so that the bar code is centered in the green box. Click 
+          span.next(translate) &nbspScan Bar Code&nbsp
+          translate to activate the camera and scan the code.
+              
+        .row(ng-if="wizard.fobSetup.validMacAddress")       
+          h3.text-center
+            | {{wizard.fobSetup.ksMacAddress1}} 
+            span
+              bold {{wizard.fobSetup.macAddress}}
+            | {{wizard.fobSetup.ksMacAddress2}}
+          
+              
+        .row
+          .col
+          .colw.col-80.text-center.col-center
+            .fa.fa-barcode.fa-3x
+            br
+            .button.button-clear.button-positive.wizard-link(ng-click="wizard.fobSetup.scanCode()", translate) Scan Bar Code
+          .col
+            
+        .row(ng-if="wizard.fobSetup.invalidScan")
+          .col
+          .colw.col-80.text-center.col-center
+            .button.button-outline.button-assertive(translate) Invalid bar code, <br> please try again.
+          .col
+                  
+          
+
+  ion-footer-bar
+    .row.wizard-section-intro
+      .col
+      .col.col-30.text-center.col-center
+        .button.button-clear.button-dark.wizard-link(ng-click='wizard.fobSetup.closeModal2()', translate) Cancel
+      .col.col-30.text-center.col-center
+        .button.button-clear.button-positive.wizard-link( ng-disabled="!wizard.fobSetup.validMacAddress", ng-click="wizard.fobSetup.findFobfobByMacAddress()" translate) Find Stick
+      .col

@@ -1,0 +1,63 @@
+//- House w/ status
+div(layout='column' flex)
+  //- progress bar
+  div( ng-show="home.checkingForActivityUpdates || home.checkingForTagUpdates")
+    md-progress-linear.md-primary(md-mode='indeterminate')  
+     
+  div(layout="row" layout-sm="column")
+    md-card.korner-no-padding(ng-style="($mdMedia('gt-sm'))? {'max-height':'170px'} : {}")
+      md-card-content(layout="row")
+        img.thumbnail64.md-avatar(ng-src='{{fob.imageUrl}}') 
+        span &nbsp &nbsp 
+        span.md-list-item-text.md-3-line(layout="column")
+          h3(hide-sm, show-gt-sm) {{fob.fob_name}}
+          ks-fob-address(fob='fob' show-version="'true'")
+      ks-fob-status-banner(fob='fob', ng-if="fob.getFobUser().hasArmDisarmFeature()")
+        
+    //- tags
+    md-card(flex ng-if='fobUser.hasActivityBasicFeature() === true && fob.tags.getCount() > 0', ng-click="toggleShowTags()", ng-style="($mdMedia('gt-sm'))? {'max-height':'170px'} : {}")  
+      md-content.korner-top-bottom-margin(flex) 
+        ks-korner-section-title(title='"Tags"', has-plus-minus-icon='"false"', swap-control="toggleControl", show-tags="home.showTags", pluralize-sub-title='{"0": "No Tags", "1": "1 Tag", "other": "{} tags"}', count='fob.tags.getCount()')
+        md-list(flex ng-if="home.showTags")
+          ks-tag-list-item(ng-repeat='tag in fob.tags.tags | orderBy: "tag_name": false', tag='tag')
+     
+        md-divider
+        //- ks-korner-section-title(title='"Extenders"', has-plus-minus-icon='"false"', swap-control="toggleControl", show-tags="true", pluralize-sub-title='{"0": "No Extender", "1": "1 Extender", "other": "{} Extenders"}', count='fob.extenders.getCount()' ng-if="fob.extenders.getCount() > 0")
+        md-list(flex ng-if="fob.extenders.getCount() > 0 && home.showTags")
+          ks-extender-list-item(ng-repeat='extender in fob.extenders.extenders | orderBy: "extender_name": false', extender='extender')
+            
+    div.korner-text-center(ng-if='fobUser.hasActivityBasicFeature() === true && fob.tags.getCount() === 0')
+      md-button.md-raised(ng-click="showSetupScreen({wizardType:wizardType.TAG_SETUP})")
+        md-list-item.korner-no-material-button-style
+          .md-avatar.korner-mobile
+            img.korner-thumbnail48(src="app/img/settings_tag.png")
+          .md-list-item-text
+            .md-subhead(translate) Add Tags
+          
+  
+  md-card(flex, ng-if="$mdMedia('sm') && !$mdMedia('gt-sm') && fobUser.hasActivityBasicFeature() === true")
+    ks-korner-section-title(title='"Activity For Last 24 Hours"', pluralize-sub-title='{"0": "No events", "1": "1 event", "other": "{} events"}', count='fob.activities.getCount()')
+    md-content(flex, ng-style="($mdMedia('gt-sm'))? {'max-height':'170px'} : {}")
+      md-list()
+        ks-activity-list-item(ng-repeat='activity in fob.activities.activities  | orderBy: "occurredAt": true', activity='activity')
+    br
+            
+  md-card.korner-bg-light.korner-text-center(layout-align='space-around start' ng-if="$mdMedia('gt-sm') && fobUser.hasConfigFeature() === true" layout="row" )  
+    include home/config/_home-config-items
+      
+
+        
+  div(ng-if="$mdMedia('gt-sm')" layout="row" flex)
+    md-card(layout="column" flex ng-if='fobUser.hasActivityBasicFeature() === true' ng-style="dynamicHeightStyle")  
+      ks-korner-section-title(title='"Activity For Last 24 Hours"', pluralize-sub-title='{"0": "No events", "1": "1 event", "other": "{} events"}', count='fob.activities.getCount()')
+      md-content.korner-top-bottom-margin(flex)
+        md-list
+          ks-activity-list-item(ng-repeat='activity in fob.activities.activities  | orderBy: "occurredAt": true', activity='activity')
+    
+    md-card(layout="column" flex ng-if='fobUser.hasChatFeature() === true' ng-style="dynamicHeightStyle")  
+      md-button.md-fab.md-warn.md-mini.md-fab-bottom-right(ng-click='home.onNewMessage($event)')
+        md-icon(md-svg-src='app/img/ic_mode_edit_white_24px.svg')
+      //- ion-tab(label='Circle Feed', ng-if='fobUser.hasChatFeature() === true' md-on-select="home.showChatMessageButton = true" md-on-deselect="home.showChatMessageButton = false")
+      md-content.korner-top-bottom-margin(flex ng-controller="home.circle.feed.controller")
+        include home/circle-feed/_home-circle-content
+        

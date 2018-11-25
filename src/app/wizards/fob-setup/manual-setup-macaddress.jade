@@ -1,0 +1,75 @@
+ion-modal-view(has-header='true' has-footer='true',  ng-controller="fobSetupController.manualSetupMacAddressModalController" ng-style="($mdMedia('gt-sm'))? {'min-height':'480px'} : {}")
+  ion-header-bar.bar-dark
+    h1.title(translate) Manual Stick Setup
+
+  ion-content
+    .wizard
+      .wizard-section-intro
+        h1(translate) Enter MAC Address of Stick
+        p(translate) Using the keypad below, enter the 6 characters needed to complete the address code of the Stick, then click 
+          span.next(translate) &nbspFind&nbsp
+          translate below.
+
+        h3(translate MAC Address)
+        .fa-border.text-center
+          strong.text-center.grey  {{wizard.fobSetup.ksMacAddress1}} 
+          strong.dark {{wizard.fobSetup.macAddress}}
+          strong.text-center.grey  {{wizard.fobSetup.ksMacAddress2}} 
+          
+        div.text-center
+          .padding.korner-wizard-image(layout-fill)
+            .row
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('1')") 1
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('2')") 2
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('3')") 3
+              .col
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('A')") A
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('B')") B
+            .row
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('4')") 4
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('5')") 5
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('6')") 6
+              .col
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('C')") C
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('D')") D
+            .row
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('7')") 7
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('8')") 8
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('9')") 9
+              .col
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('E')") E
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('F')") F
+            .row
+              .col
+              .col
+                .button.button-positive.button-outline(ng-click="wizard.fobSetup.insertDigit('0')") 0
+              .col
+              .col
+              .col
+              .col
+                .button.button-assertive.button-outline(ng-click="wizard.fobSetup.removeDigit()" translate) del
+
+  ion-footer-bar
+    .row
+      .col
+      .col.col-80.text-center.col-center
+        .wizard-section-intro
+          .button.button-clear.button-dark.wizard-link(ng-click='wizard.fobSetup.closeModal()', translate) Cancel
+          | &nbsp &nbsp
+          .button.button-clear.button-positive.wizard-link( ng-disabled="!wizard.fobSetup.validMacAddress", ng-click="wizard.fobSetup.findFobfobByMacAddress()" translate) Find Stick
+      .col

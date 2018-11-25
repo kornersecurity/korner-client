@@ -1,0 +1,5 @@
+md-content.korner-mobile
+  md-card
+    md-subheader.md-no-sticky.ks-subheader(translate) You are about to arm the home, but there are issues:
+    md-list
+      ks-tag-list-item(ng-repeat='tag in tagsWithIssues | orderBy: "tag_name": false', tag='tag')

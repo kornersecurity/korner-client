@@ -1,0 +1,29 @@
+
+md-dialog(flex ng-enter="(profile.profileModified)? profile.updateProfile() : -1")
+  md-toolbar.md-primary(flex md-theme="wizardTheme")
+    .md-toolbar-tools
+      h2.korner-text-color-white.md-flex(translate) Account Profile
+      span(flex)
+      md-button.md-icon-button(ng-click="profile.closeModal()")
+        md-icon(md-svg-src="app/img/ic_close_white_24px.svg")
+            
+  //- md-content(flex)
+  //- md-dialog-content.md-dynamic-height(flex )
+  md-tabs.md-border-bottom(flex id="kornerProfile" layout="column")
+    md-tab(id="profileTab")
+      md-tab-label
+        translate Profile
+      md-tab-body.md-padding        
+        include profile/_profile_info
+              
+    md-tab(id="addressTab")
+      md-tab-label
+        translate Address
+      md-tab-body
+        include profile/_profile_address
+        
+    md-tab(id="passwordTab")
+      md-tab-label
+        translate Password
+      md-tab-body
+        include profile/_profile_password

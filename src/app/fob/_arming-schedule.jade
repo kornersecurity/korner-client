@@ -1,0 +1,86 @@
+md-content(flex layout-fill ng-controller="armingScheduleController" id="ksScrollableContent")
+  div(ng-repeat='alert in alerts' ng-if="alerts.length > 0") 
+    .item(id='alertDiv').item-divider.item-energized
+      | {{alert.msg}}
+
+  form(role='form', name='setScheduleForm', novalidate='novalidate')
+    md-list(ng-if="!fobConfiguration.selectedSchedule")
+      md-list-item
+        p
+          strong(translate) Enable Arming Schedule
+        md-switch.md-secondary(ng-model="fobConfiguration.selectedFob.server_data.dailySecuritySchedule.enabled" ng-change='fobConfiguration.saveFobConfigurationChanges()' ng-if="!fobConfiguration.selectedSchedule")
+   
+      md-list-item     
+        p(translate) Send a notification to my device when arming/disarming
+        md-switch.md-secondary(ng-disabled="!fobConfiguration.selectedFob.server_data.dailySecuritySchedule.enabled" ng-model="fobConfiguration.selectedFob.server_data.dailySecuritySchedule.pushNotify" ng-change='fobConfiguration.saveFobConfigurationChanges()' ng-if="!fobConfiguration.selectedSchedule")
+      
+      md-list-item
+        p(translate) Email me when arming/disarming
+        md-switch.md-secondary(ng-disabled="!fobConfiguration.selectedFob.server_data.dailySecuritySchedule.enabled" ng-model="fobConfiguration.selectedFob.server_data.dailySecuritySchedule.emailNotify" ng-change='fobConfiguration.saveFobConfigurationChanges()' ng-if="!fobConfiguration.selectedSchedule")
+    
+      md-list-item
+        p(translate) Allow Arming with issues
+        md-switch.md-secondary(ng-disabled="!fobConfiguration.selectedFob.server_data.dailySecuritySchedule.enabled" ng-model="fobConfiguration.selectedFob.server_data.dailySecuritySchedule.withIssues" ng-change='fobConfiguration.saveFobConfigurationChanges()' ng-if="!fobConfiguration.selectedSchedule")
+      
+    md-card(layout='column' ng-if="fobConfiguration.selectedSchedule")
+      div.text-center
+        h4(translate) {{fobConfiguration.generateScheduleLabel(fobConfiguration.selectedSchedule) }} 
+        
+      .dashboard-section.bg-grey
+        span(translate) Action        
+      .md-padding
+        md-select(name="scheduleAction" ng-model="fobConfiguration.scheduleAction" ng-change="fobConfiguration.onSelectedScheduleChanged()" style="margin: 0 0 26px 0;")
+          md-option(ng-value="ScheduleActionConst.ARM" translate) Arm System
+          md-option(ng-value="ScheduleActionConst.DISARM" translate) Disarm System
+            
+      .dashboard-section.bg-grey
+        span(translate) Time
+      timepicker(input-obj="timePickerObject")
+          
+      //- md-input-container
+      //-   label Time Zone
+      //-   input(style="max-width: 60px;" ng-model="fobConfiguration.localTimeZone" ng-change="fobConfiguration.onSelectedScheduleChanged()" name="localTimeZone" type="number" step="any" min="-12" max="12" required)
+      //-   div(ng-messages="setScheduleForm.localTimeZone.$error" role="alert"  ng-show="setScheduleForm.localTimeZone.$touched || setScheduleForm.localTimeZone.$submitted")
+      //-     div.text-nowrap(ng-message="required") Time Zone is required 
+      //-     div.text-nowrap(ng-message="number") Please enter a valid time zone.
+      //-     div.text-nowrap(ng-message="min") Please enter a valid time zone.
+      //-     div.text-nowrap(ng-message="max") Please enter a valid time zone.
+
+      .dashboard-section.bg-grey
+        span(translate) Days
+      div(layout="row" layout-align='space-around center')
+        md-checkbox.korner-checkbox-tiny(ng-model="fobConfiguration.hasMonday" ng-change="fobConfiguration.onSelectedWeekDaysChanged(fobConfiguration.hasMonday, DayOfWeekConst.MONDAY)")
+        md-checkbox.korner-checkbox-tiny(ng-model="fobConfiguration.hasTuesday" ng-change="fobConfiguration.onSelectedWeekDaysChanged(fobConfiguration.hasTuesday, DayOfWeekConst.TUESDAY)")
+        md-checkbox.korner-checkbox-tiny(ng-model="fobConfiguration.hasWednesday" ng-change="fobConfiguration.onSelectedWeekDaysChanged(fobConfiguration.hasWednesday, DayOfWeekConst.WEDNESDAY)")
+        md-checkbox.korner-checkbox-tiny(ng-model="fobConfiguration.hasThursday" ng-change="fobConfiguration.onSelectedWeekDaysChanged(fobConfiguration.hasThursday, DayOfWeekConst.THURSDAY)")
+        md-checkbox.korner-checkbox-tiny(ng-model="fobConfiguration.hasFriday" ng-change="fobConfiguration.onSelectedWeekDaysChanged(fobConfiguration.hasFriday, DayOfWeekConst.FRIDAY)")
+        md-checkbox.korner-checkbox-tiny(ng-model="fobConfiguration.hasSaturday" ng-change="fobConfiguration.onSelectedWeekDaysChanged(fobConfiguration.hasSaturday, DayOfWeekConst.SATURDAY)")
+        md-checkbox.korner-checkbox-tiny(ng-model="fobConfiguration.hasSunday" ng-change="fobConfiguration.onSelectedWeekDaysChanged(fobConfiguration.hasSunday, DayOfWeekConst.SUNDAY)")
+      div(layout="row" layout-align='space-around center')
+        div.korner-box-tiny M
+        div.korner-box-tiny T
+        div.korner-box-tiny W
+        div.korner-box-tiny T
+        div.korner-box-tiny F
+        div.korner-box-tiny S
+        div.korner-box-tiny S
+      
+      section(layout='row', layout-align='center')
+        md-button.md-raised(ng-click='fobConfiguration.cancelArmingScheduleChanges()') Cancel
+        md-button.md-raised.md-primary(ng-disabled='!setScheduleForm.$valid || !fobConfiguration.selectedScheduleChanged', ng-click='fobConfiguration.saveSchedule()') Set Schedule
+          
+    md-card(layout='column' flex ng-if="!fobConfiguration.selectedSchedule")
+      .dashboard-section.bg-grey
+        span(translate) Schedules
+      md-list.korner-no-padding(can-swipe="false" )
+        md-list-item.wizard-list.korner-item-button-right(ng-repeat="schedule in fobConfiguration.selectedFob.server_data.dailySecuritySchedule.schedule")
+          p.message {{fobConfiguration.generateScheduleLabel(schedule) }} 
+            //- br
+            //- span.korner-info.korner-text-color-low-priority(translate) FIRMWARE VERSION: {{firmwareVersionToHex(tag)}}
+          .pull-right.text-nowrap
+            md-button.korner-list-md-button.md-primary(md-theme="alarmTheme" ng-click="fobConfiguration.editSchedule(schedule, $index)", translate) edit
+            md-button.korner-list-md-button.md-warn.md-hue-2(ng-click="fobConfiguration.removeSchedule($index)", translate) del        
+          md-divider
+      br
+      md-button.md-raised.md-primary(translate ng-click="fobConfiguration.addSchedule()") New Schedule
+      

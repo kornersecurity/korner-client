@@ -1,0 +1,11 @@
+.wizard-section-intro
+  
+  h4(ng-if="wizard.tagSetup.tags.length === 0" translate) OK, time to set up your first Tag. <br/>First, choose window or door:
+
+  h3(ng-if="wizard.tagSetup.tags.length > 0" translate) Entry Point Type    
+    
+  section.md-padding.wizard-selection(ng-repeat="setupType in wizard.tagSetup.setupTypes", layout, layout-align="left center")
+    ion-checkbox(layout-fill ng-model="setupType.checked", ng-change="wizard.tagSetup.setupTypeChanged(setupType)" ng-class="{'item item-checkbox ng-valid item-stable': setupType.checked, 'item item-checkbox ng-valid': !setupType.checked}")
+      h2(translate) {{setupType.title}}
+      p.desc(translate) {{setupType.desc}}
+      //- img.wizard-icon(ng-src="{{setupType.img_src}}" height="100")

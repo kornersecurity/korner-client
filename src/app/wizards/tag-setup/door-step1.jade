@@ -1,0 +1,16 @@
+.wizard-section-intro
+  h3(translate) Attaching Tag
+        
+md-card.md-padding.text-center(layout-align="center center")
+  h4(translate) Apply the Tag to the top corner of the door
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/door_slide_left_right_1.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 2")  
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/door_swing_1.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 3")
+md-card.md-padding.text-center(layout-align="center center")
+  h4(translate) Tag should be away from the hinges
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/door_slide_left_right_3.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 2")
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/door_swing_3.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 3")
+md-card.md-padding.text-center(layout-align="center center")
+  h4(translate) Two flat sides of Tag should be adjacent to the edges of the door
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/door_slide_left_right_2.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 2")
+  img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/door_swing_2.jpg' ng-if="wizard.tagSetup.openingMechanism.id === 3")
+  

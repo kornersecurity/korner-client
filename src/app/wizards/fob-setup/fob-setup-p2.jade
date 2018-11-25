@@ -1,0 +1,101 @@
+
+.wizard-section-intro
+  div(ng-if="wizard.fobSetup.selectedFob.isNewFob")
+    h3(translate) Stick Registration
+    p(translate) Success! The Stick is now communicating with the Korner server. Please enter a name for this home and the address in the spaces below. If you would like the address to be filled in based on your phone's location, then click 
+      span.next(translate) &nbsp'Auto Fill' link below&nbsp
+      translate link below.
+
+        
+  form(novalidate name="myForm" ng-keypress='catchEnter($event)' keyboard-attach)
+    md-card
+      md-list-item.md-3-line
+        img.thumbnail64.md-avatar(ng-src='{{wizard.fobSetup.p2.picUrl}}' ng-click='wizard.fobSetup.p2.showPictureActionSheet()')
+        input(type="file" onchange="angular.element(this).scope().wizard.fobSetup.p2.showImageFromFileSelect(this)" ng-file-select="wizard.fobSetup.p2.showImageFromFileSelect($files)" style="display:none;" id="fileInput" name="filedata" accept="image/jpg")
+        .md-list-item-text
+          .md-subhead(translate) Home Image
+          .md-caption.korner-text-color-light.wrap-text(translate) Click image to upload your own (JPG files only).
+      
+      md-input-container
+        label(translate) Home name
+        input(type="text", name="fobName" ng-model="wizard.fobSetup.editableFob.fob_name" required)    
+        div(ng-messages="myForm.fobName.$error")
+          div.text-nowrap(ng-message="required") Home name is required     
+      
+      md-input-container
+        label(translate) Police Phone Number
+        input.md-secondary(type="text" name='policePhoneNumber' ng-model="wizard.fobSetup.editableFob.client_data.police_phone_number" ng-change='wizard.fobSetup.p2.checkFobSettings()' required)
+        div(ng-messages="myForm.policePhoneNumber.$error")
+          div.text-nowrap(ng-message="required") Police phone number is required   
+                      
+    br      
+
+    md-card
+      md-button.md-raised.md-primary.pull-right(ng-disabled="wizard.fobSetup.disableAutoFind", ng-click='wizard.fobSetup.p2.findUserLocation()') auto fill home location
+                
+      md-input-container
+        label Address line 1
+        input(type="text" name="line1" ng-model="wizard.fobSetup.editableFob.address.line_1" required)    
+        div(ng-messages="myForm.line1.$error")
+          div.text-nowrap(ng-message="required") Street address is required 
+      
+      md-input-container
+        label Address line 2
+        input(type="text" name="line2" ng-model="wizard.fobSetup.editableFob.address.line_2")    
+        
+      md-input-container
+        label(translate) Country
+        md-select(placeholder="Country" name="country" ng-model="wizard.fobSetup.editableFob.address.country" required)
+          md-option(ng-repeat="country in wizard.fobSetup.countries" value="{{country.name}}") {{country.name}}
+        div(ng-messages="myForm.country.$error")
+          div.text-nowrap(ng-message="required") Country is required 
+          
+      md-input-container
+        label City
+        input(type="text" name="city" ng-model="wizard.fobSetup.editableFob.address.city" required)    
+        div(ng-messages="myForm.city.$error" )
+          div.text-nowrap(ng-message="required") City name is required 
+          
+      md-input-container(ng-if="wizard.fobSetup.editableFob.address.country!= null && wizard.fobSetup.editableFob.address.country.toLowerCase().indexOf('united states') === -1")
+        label State/Province
+        input(type="text" name="stateProvince" ng-model="wizard.fobSetup.editableFob.address.state" required)    
+        div(ng-messages="myForm.stateProvince.$error" )
+          div.text-nowrap(ng-message="required") State/Province is required 
+          
+      md-input-container(ng-if="wizard.fobSetup.editableFob.address.country.toLowerCase().indexOf('united states') > -1")
+        label(translate) State
+        md-select(placeholder="State" name="state" ng-model="wizard.fobSetup.editableFob.address.state" required)
+          md-option(ng-repeat="state in wizard.fobSetup.states" value="{{state.abbrev}}") {{state.abbrev}}
+        div(ng-messages="myForm.state.$error")
+          div.text-nowrap(ng-message="required") Sate is required 
+      
+      md-input-container
+        label Zipcode (Postal Code)
+        input(type="text" name="zipcode" ng-model="wizard.fobSetup.editableFob.address.zipcode" required)    
+        div(ng-messages="myForm.zipcode.$error")
+          div.text-nowrap(ng-message="required") Zipcode is required 
+      br
+
+    md-card(ng-if="wizard.fobSetup.selectedFob.isNewFob")
+      .korner-md-card-getter 
+        .md-subhead(translate) Korner Stick Setup
+        .md-caption.korner-text-color-light(translate) Warning changing the settings will affect how your Korner Stick behaves
+      br
+      md-list
+    
+        md-list-item
+          p(translate) Intrusion Siren Enabled
+          md-switch.md-secondary(ng-model="wizard.fobSetup.editableFob.buzzer_enabled" ng-change='wizard.fobSetup.p2.checkFobSettings()' ng-true-value='1' ng-false-value='0')
+          
+        md-list-item(ng-class='{"korner-alpha-item" : !wizard.fobSetup.editableFob.buzzer_enabled}')
+          p(translate) Doorchime Enabled
+          md-switch.md-secondary(ng-model="wizard.fobSetup.editableFob.doorchime_enabled" ng-change='wizard.fobSetup.p2.checkFobSettings()' ng-true-value='1' ng-false-value='0')
+
+        //- md-list-item
+        //-   p(translate) No Arm Delay
+        //-   md-switch.md-secondary(ng-model="wizard.fobSetup.p2.noArmDelay" ng-change="wizard.fobSetup.p2.toggleArmDelay()")
+
+        md-list-item(layout-sm)
+          p(translate) Arm Delay
+          md-slider.md-primary(flex ng-model="wizard.fobSetup.editableFob.arm_delay" ng-change='wizard.fobSetup.p2.checkFobSettings()' min='0' max='120')
+          | {{wizard.fobSetup.editableFob.arm_delay}}

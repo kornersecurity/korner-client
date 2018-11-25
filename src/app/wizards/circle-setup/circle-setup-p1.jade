@@ -1,0 +1,94 @@
+
+.wizard
+  .wizard-section-intro
+    
+  section.md-padding
+    p 
+      strong(translate) Default settings: 
+      translate &nbspMembers will not receive alerts unless they are manually forwarded by you.
+    p
+      strong(translate) Housemates: 
+      translate &nbspInvite to circle. Once they accept, edit their settings to expand access.
+    p
+      strong(translate) Credits: 
+      translate &nbsp You will get $10 credit for every SC invitee that makes a purchase.  
+
+    md-button.md-raised.md-primary(layout-fill, ng-if="$root.appRuntime.canImportContacts === true", ng-click="showImportContacts()", translate, style="margin: 0px;") Select from Contacts on device
+    br(ng-if="$root.appRuntime.canImportContacts === true")
+    br(ng-if="$root.appRuntime.canImportContacts === true")
+    md-button.md-raised.md-primary(layout-fill, ng-click="showAddContact('Add', 'add')", translate, style="margin: 0px;") Enter Contact Manually
+    
+md-card
+  
+  .dashboard-section.bg-grey(ng-if="hasActiveUsers",  ng-click="wizard.circleSetup.toggleGroup('active')")
+    span(translate) Active &nbsp 
+    i.fa.fa-1x(ng-class="isGroupShown('active') ? 'fa-caret-down' : 'fa-caret-right'")
+    span.pull-right.text-nowrap
+     .dashboard-section-info
+       ng-pluralize(count='wizard.circleSetup.activeUsersCount' when='{"0": "No Members", "1": "1 Member", "other": "{} Members"}')              
+    
+  ion-list(can-swipe="false") 
+  
+    ion-item.item-icon-left(ng-repeat="user in wizard.circleSetup.users | filter:wizard.circleSetup.activeNoOwner | orderBy:'fullName()'", item="user", ng-show="isGroupShown('active')")
+      i.icon.ion-checkmark-round.icon-dark
+      h4 {{user.fullName()}} &nbsp
+        span.korner-text-color-grey.korner-list-email ({{user.email}})
+      p.buttons
+        md-button.korner-list-md-button.md-primary(md-theme="alarmTheme" ng-click="editUser(user)", translate) Edit
+        | &nbsp&nbsp&nbsp
+        md-button.korner-list-md-button.md-warn(md-theme="alarmTheme" ng-click="removeUser(user)", translate) Remove
+      
+  
+  .dashboard-section.bg-grey(ng-if="wizard.circleSetup.invitedUsersCount > 0", ng-click="wizard.circleSetup.toggleGroup('pending')")
+    span(translate) Pending Invites &nbsp 
+    i.fa.fa-1x(ng-class="isGroupShown('pending') ? 'fa-caret-down' : 'fa-caret-right'")
+    span.pull-right.text-nowrap
+     .dashboard-section-info
+       ng-pluralize(count='wizard.circleSetup.invitedUsersCount' when='{"0": "No Members", "1": "1 Member", "other": "{} Members"}')              
+    
+  ion-list(can-swipe="false")
+  
+    ion-item.item-icon-left(ng-repeat="user in wizard.circleSetup.users | filter:{fob_user_status_id:fobUserStatusConst.STATUS_NEW} | orderBy:'fullName()'", item="user", ng-show="isGroupShown('pending')")
+      i.icon.ion-paper-airplane.icon-dark
+      h4 {{user.fullName()}} &nbsp 
+        span.korner-text-color-grey.korner-list-email ({{user.email}})
+      p.buttons
+        md-button.korner-list-md-button.md-primary(md-theme="alarmTheme" ng-click="editUser(user)", translate) Edit
+        | &nbsp&nbsp&nbsp
+        md-button.korner-list-md-button.md-warn(md-theme="alarmTheme" ng-click="removeUser(user)", translate) Remove
+      
+    ion-item.item-icon-left(ng-repeat="user in wizard.circleSetup.users | filter:{fob_user_status_id:fobUserStatusConst.STATUS_INVITED} | orderBy:'fullName()'", item="user", ng-show="isGroupShown('pending')")
+      i.icon.ion-email.icon-dark
+      h4 {{user.fullName()}} &nbsp 
+        span.korner-text-color-grey.korner-list-email ({{user.email}})
+      p.buttons
+        md-button.korner-list-md-button.md-primary(md-theme="alarmTheme2" ng-click="resendInvitation(user)", translate) Resend Invitation
+        | &nbsp&nbsp&nbsp
+        md-button.korner-list-md-button.md-warn(md-theme="alarmTheme" ng-click="removeUser(user)", translate) Remove
+      
+    ion-item.item-icon-left(ng-repeat="user in wizard.circleSetup.users | filter:{fob_user_status_id:fobUserStatusConst.STATUS_CREATED} | orderBy:'fullName()'", item="user", ng-show="isGroupShown('pending')")
+      i.icon.ion-email.icon-dark
+      h4 {{user.fullName()}} &nbsp 
+        span.korner-text-color-grey.korner-list-email ({{user.email}})
+      p.buttons
+        md-button.korner-list-md-button.md-primary(md-theme="alarmTheme2" ng-click="resendInvitation(user)", translate) Resend Invitation
+        | &nbsp&nbsp&nbsp
+        md-button.korner-list-md-button.md-warn(md-theme="alarmTheme" ng-click="removeUser(user)", translate) Remove
+      
+  .dashboard-section.bg-grey(ng-if="hasUsersWithStatus(fobUserStatusConst.STATUS_DECLINED)", ng-click="wizard.circleSetup.toggleGroup('declined')")
+    span(translate) Declined &nbsp 
+    i.fa.fa-1x(ng-class="isGroupShown('declined') ? 'fa-caret-down' : 'fa-caret-right'")
+    span.pull-right.text-nowrap
+     .dashboard-section-info
+       ng-pluralize(count='wizard.circleSetup.declinedUsersCount' when='{"0": "No Members", "1": "1 Member", "other": "{} Members"}')              
+       
+  ion-list(can-swipe="false")  
+    
+    ion-item.item-icon-left(ng-repeat="user in wizard.circleSetup.users | filter:{fob_user_status_id:fobUserStatusConst.STATUS_DECLINED} | orderBy:'fullName()'", item="user", ng-show="isGroupShown('declined')")
+      i.icon.ion-thumbsdown.icon-dark
+      h4 {{user.fullName()}} &nbsp 
+        span.korner-text-color-grey.korner-list-email ({{user.email}})
+      md-button.korner-list-md-button.md-warn(md-theme="alarmTheme" ng-click="removeUser(user)", translate) Remove
+      
+section.md-padding.text-center  
+  p(translate) Once you have completed entering contacts, press next to send Invite

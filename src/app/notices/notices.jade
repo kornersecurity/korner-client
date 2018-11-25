@@ -1,0 +1,32 @@
+
+md-dialog(flex)
+  
+  md-toolbar.md-primary(flex md-theme="wizardTheme")
+    .md-toolbar-tools
+      h2.korner-text-color-white.md-flex(translate) Korner Safe
+      span(flex)
+      md-button.md-icon-button(ng-click="noticeScreen.closeModal()")
+        md-icon(md-svg-src="app/img/ic_close_white_24px.svg")
+          
+  md-dialog-content(flex layout-fill)
+    md-content(flex id="kornerNotices" layout="column" layout-fill)
+      
+      .dashboard-section.bg-grey(ng-if="noticeScreen.notices.length > 1")
+        span(translate) Korner Notices
+        span.pull-right.text-nowrap
+         .dashboard-section-info
+           ng-pluralize(count='noticeScreen.notices.length' when='{"0": "No notices", "1": "1 notice", "other": "{} notices"}')
+      
+      md-list(layout-align="left")
+        md-list-item.md-2-line(ng-repeat="notice in noticeScreen.notices")
+          md-icon(md-svg-src='app/img/ic_build_black_24px.svg')
+          md-list-item-text(layout-fill)
+            h4(translate) {{notice.title}}
+            p(translate) {{notice.message}}
+          md-divider 
+        
+            
+                
+      .card(ng-if="noticeScreen.notices.length === 0 && noticeScreen.loadingNotices === false")
+        .item.item-text-wrap.text-center(translate) There are no maintenance notices at this time.
+          

@@ -1,0 +1,23 @@
+.wizard-section-intro
+  h3(translate) Door Characteristics
+  section.md-padding.wizard-selection(layout, layout-align="left center")
+    ion-checkbox(layout-fill ng-model="wizard.tagSetup.hasScreen" ng-change="wizard.tagSetup.p3a.characteristicsChanged()")
+      p.question(translate) Click if your door has a swinging or sliding screen (not if it is fixed)
+  section.md-padding.wizard-selection(layout, layout-align="left center")
+    ion-checkbox(layout-fill ng-model="wizard.tagSetup.hasBlinds" ng-change="wizard.tagSetup.p3a.characteristicsChanged()")
+      p.question(translate) Click if your door has blinds, curtains or wooden shutters
+  section.md-padding.wizard-selection(layout, layout-align="left center")
+    ion-checkbox(layout-fill ng-if="wizard.tagSetup.hasBlinds", ng-model="wizard.tagSetup.horizontalBlinds" ng-change="wizard.tagSetup.p3a.portalCharacteristicsChanged()")
+      p.question(translate) Click if your door has horizontal blinds
+      
+  md-card(ng-if="wizard.tagSetup.hasBlinds" layout-align="center center")
+    img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/window_blinds.png')  
+    
+  section.md-padding.wizard-selection(layout, layout-align="left center")
+    ion-checkbox(layout-fill ng-model="wizard.tagSetup.noCharacteristics" ng-change="wizard.tagSetup.p3a.noPortalCharacteristics()")
+      p.question(translate) Click if neither
+      
+
+  //- br
+  //- div(layout layout-align="center center")
+  //-   h4(translate) If neither, press Next

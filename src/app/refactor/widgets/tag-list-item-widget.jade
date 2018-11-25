@@ -1,0 +1,8 @@
+md-list-item.md-caption(ng-class='{"korner-alpha-item" : tag.isBypassed}')
+  img.img.thumbnail24(ng-src='{{tagStateImage()}}')    
+  p.korner-gutter {{ tag.tagFullName }}
+    span.korner-info.korner-text-color-energized(ng-if="tag.tagIssuesText.length > 0")
+      | &nbsp{{ tag.tagIssuesText }}
+  .pull-right.text-nowrap
+    p.korner-info.korner-text-color-low-priority
+      | {{ tag.tagStatusText }}

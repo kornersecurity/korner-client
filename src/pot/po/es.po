@@ -1,0 +1,602 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.7.4\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/fob-setup-p1.html
+msgid "'Manual Setup'"
+msgstr "Configuración Manual"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p1.html
+msgid "'next'"
+msgstr "siguiente"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+msgid "{{modalTitle}} Contact"
+msgstr "{{modalTitle}} Contacto"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+msgid "{{modalTitle}} Contact Details"
+msgstr "{{modalTitle}} Información de Contacto"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p2.html
+msgid "&nbsp Active"
+msgstr "&nbsp Activo"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p2.html
+msgid "&nbsp Declined"
+msgstr "&nbsp Denegado"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p2.html
+msgid "&nbsp Pending Invites"
+msgstr "&nbsp Invitaciones Pendientes"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/wizard-getting-started.html
+msgid ""
+"<div class=\"fa fa-arrow-left fa-1x\"> \n"
+"&nbsp exit</div>"
+msgstr ""
+"<div class=\"fa fa-arrow-left fa-1x\"> \n"
+"&nbsp salir</div>"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/tag-setup.html
+msgid "<div class=\"fa fa-arrow-left fa-1x\"> </div>&nbsp back"
+msgstr "<div class=\"fa fa-arrow-left fa-1x\"> </div>&nbsp atras"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/tag-setup.html
+msgid "<div class=\"fa fa-arrow-left fa-1x\"> </div>&nbsp exit"
+msgstr "<div class=\"fa fa-arrow-left fa-1x\"> </div>&nbsp salir"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+msgid "A valid email address is required."
+msgstr "Se requiere dirección de correo electrónico válida."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Add Circle Member"
+msgstr "Agregar Miembro al Circulo"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Add Contact"
+msgstr "Agregar Contacto"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Are you sure you want to close the security circle wizard?"
+msgstr ""
+"¿Seguro que desea cerrar el asistente de creación de círculo de seguridad?"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Are you sure you want to remove"
+msgstr "¿Seguro que desea remover "
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+#: Inc/PatrolTag/repo/korner-client/www/app/views/import-contacts.html
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Cannot remove user at this time."
+msgstr "No se pudo remover el miembro "
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p2.html
+msgid ""
+"Circle Membership<div ng-click=\"showAddImportActionSheet()\" class=\"pull-"
+"right button button-clear button-positive fa fa-user-plus fa-2x\"></div>"
+msgstr ""
+"Circle Membership<div ng-click=\"showAddImportActionSheet()\" class=\"pull-"
+"right button button-clear button-positive fa fa-user-plus fa-2x\"></div>"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/import-contacts.html
+msgid ""
+"Click the box next to the name of each contact who you would like to invite "
+"to join your Security Circle."
+msgstr ""
+"Haga clic en la casilla junto al nombre de cada contacto que le gustaría "
+"invitar a unirse a su círculo de Seguridad."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Close Wizard"
+msgstr "Cerrar Asistente"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/welcome-p1.html
+msgid ""
+"Congratulations, and welcome to home security in its simplest form.  Please "
+"click the 'Play' button below to watch a short video about the Korner system "
+"and an overview of the set-up process."
+msgstr ""
+"Felicitaciones y bienvenido a seguridad domiciliaria en su forma más simple. "
+"Por favor, haga clic en el botón 'Ver' de abajo para ver un video corto "
+"sobre el sistema Korner y una visión general del proceso de configuración."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/fob-setup-p1.html
+msgid "Connect the Stick to your router"
+msgstr "Conectar el Fob a su router de internet."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+msgid "Contact Details"
+msgstr "Información de Contacto"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Contacts cannot be loaded"
+msgstr "No se pudo cargar contactos"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p3.html
+msgid "Deselect all"
+msgstr "Deseleccionar"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/tag-setup.html
+#: Inc/PatrolTag/repo/korner-client/www/app/views/wizard-getting-started.html
+msgid "done"
+msgstr "terminado"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+msgid ""
+"E-mail Address*  &nbsp &nbsp<input type=\"email\" placeholder="
+"\"email@address.com\" ng-model=\"newUserData.email\" name=\"uEmail\" "
+"required class=\"padding-left ng-invalid ng-touched\">"
+msgstr ""
+"Dirección de Correo*  &nbsp &nbsp<input type=\"email\" placeholder="
+"\"direccion@correo.com\" ng-model=\"newUserData.email\" name=\"uEmail\" "
+"required class=\"padding-left ng-invalid ng-touched\">"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p2.html
+msgid "Edit"
+msgstr "Editar"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Email Already Used"
+msgstr "Dirección de correo ya utilizado"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+msgid "First name is required"
+msgstr "Nombre requerido"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+msgid ""
+"First Name* &nbsp &nbsp<input type=\"text\" placeholder=\"First name\" ng-"
+"model=\"newUserData.firstname\" name=\"uName\" required class=\"padding-left "
+"ng-invalid ng-touched\">"
+msgstr ""
+"Nombre* &nbsp &nbsp<input type=\"text\" placeholder=\"Nombre\" ng-model="
+"\"newUserData.firstname\" name=\"uName\" required class=\"padding-left ng-"
+"invalid ng-touched\">"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Fob Extender Setup"
+msgstr "Configuración de Extendedor de señal"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+#: Inc/PatrolTag/repo/korner-client/www/app/views/wizard-getting-started.html
+msgid "Fob Setup"
+msgstr "Configuración de Fob"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "from this security circle?"
+msgstr "de este circulo de seguridad?"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid ""
+"I would love for you to joing my Korner Security Circle. Please help me and "
+"my family feel secure in our neighbourhood"
+msgstr ""
+"Me encantaría que te sumes a mi circulo de seguridad del sistema Korner. Por "
+"favor ayuda a mi familia y a mi a sentirnos mas seguros en nuestro barrio."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/fob-setup-p1.html
+msgid ""
+"If the connection process takes more than one minute, then you can "
+"click<strong translate=\"translate\">'Manual Setup'</strong>."
+msgstr ""
+"Si el proceso de conexión tarda más de un minuto, usted puede hacer clic en "
+"<strong translate = \"translate \"> \"Configuración manual\" </ strong>."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+#: Inc/PatrolTag/repo/korner-client/www/app/views/import-contacts.html
+msgid "Import Contacts"
+msgstr "Importar Contactos"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p3.html
+msgid ""
+"In the box below, enter the message you would like to send to all of your "
+"invited members.  Your message may be up to (??) characters long.  Once you "
+"are finished, click  'Send Invitation'."
+msgstr ""
+"En el cuadro a continuación, introduzca el mensaje que le gustaría enviar a "
+"todos sus miembros invitados. Su mensaje puede ser de hasta (??) caracteres. "
+"Una vez que haya terminado, haga clic en \"Enviar invitación\"."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/fob-setup-p1.html
+msgid ""
+"Insert the Korner Stick into an open port on your router and plug the Stick "
+"into a power source using the USB cable that was provided."
+msgstr ""
+"Inserte el Korner Fob en un puerto abierto de su router de internet y "
+"conecte el Fob en una fuente de alimentación mediante el cable USB que se "
+"proporcionó."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Invitation cannot be sent."
+msgstr "Invitación No puede ser enviada."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Invitation resent successfully."
+msgstr "Invitación enviada."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Invitations cannot be sent."
+msgstr "Invitaciones no pudieron ser enviadas."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Invitations sent successfully."
+msgstr "Invitaciones enviadas."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p3.html
+msgid "Invite Contacts"
+msgstr "Invite Contactos"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p3.html
+msgid "Invite Message"
+msgstr "Mensaje de Invitación"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/home-sidemenu.html
+msgid "Korner"
+msgstr "Korner"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Korner Safe - Security Circle Invitation"
+msgstr "Korner Safe - Invitación a Circulo de Seguridad"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+msgid ""
+"Last Name  &nbsp &nbsp<input type=\"text\" placeholder=\"Last name\" ng-"
+"model=\"newUserData.lastname\" class=\"padding-left\">"
+msgstr ""
+"Apellido  &nbsp &nbsp<input type=\"text\" placeholder=\"Apellido\" ng-model="
+"\"newUserData.lastname\" class=\"padding-left\">"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Loading contacts..."
+msgstr "Cargando contactos..."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/welcome-p2.html
+msgid ""
+"lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod "
+"tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, "
+"quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo "
+"consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse "
+"cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat "
+"non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+msgstr ""
+"lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod "
+"tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, "
+"quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo "
+"consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse "
+"cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat "
+"non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/notify-circle.html
+msgid "Message"
+msgstr "Mensaje"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/home/alerts/notify-circle.js
+msgid "Message..."
+msgstr "Mensaje..."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/tag-setup.html
+msgid "next &nbsp<div class=\"fa fa-arrow-right fa-1x\"> </div>"
+msgstr "siguiente &nbsp<div class=\"fa fa-arrow-right fa-1x\"> </div>"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/wizard-getting-started.html
+msgid "next &nbsp<span><div class=\"fa fa-arrow-right fa-1x\"> </div></span>"
+msgstr ""
+"siguiente &nbsp<span><div class=\"fa fa-arrow-right fa-1x\"> </div></span>"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "No"
+msgstr "No"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/notify-circle.html
+msgid "Notify Circle"
+msgstr "Notifique Círculo de Seguridad"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/fob-setup-p1.html
+msgid ""
+"Once installed, the Stick will begin communicating with the Korner server. "
+"This may take a few minutes..."
+msgstr ""
+"Una vez instalado, el Fob comenzará comunicarse con el servidor Korner. Esto "
+"puede tardar unos minutos ..."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid ""
+"One of the email addresses you selected is already in your Security Circle. "
+"Please select a different email address."
+msgstr ""
+"Una de las direcciones de correo electrónico que ha seleccionado ya está en "
+"su círculo de Seguridad. Por favor, seleccione una dirección de correo "
+"electrónico diferente."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+msgid "Please enter a valid email address."
+msgstr "Por favor, introduzca una dirección de correo electrónico válida."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/notify-circle.html
+msgid "Recipients"
+msgstr "Recibidores"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p2.html
+msgid "Remove"
+msgstr "Remover"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Remove User"
+msgstr "Remover Usuario"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Removing user from circle..."
+msgstr "Removiendo usuario de su circulo de seguridad..."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p2.html
+msgid "Resend"
+msgstr "Re-enviar"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p2.html
+msgid "Resend Invitation"
+msgstr "Re-enviar Invitación "
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Resending Invitation..."
+msgstr "Re-enviando Invitación..."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+#: Inc/PatrolTag/repo/korner-client/www/app/views/import-contacts.html
+msgid "Save"
+msgstr "Guardar"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/fob-setup-p1.html
+msgid "Searching"
+msgstr "Buscando..."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p1.html
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p4.html
+msgid "Security Circle"
+msgstr "Circulo de Seguridad"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p1.html
+msgid "Security Circle Creation"
+msgstr "Creación de Circulo de Seguridad"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Security Circle Setup"
+msgstr "Configuración Circulo de Seguridad"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p3.html
+msgid "Select all"
+msgstr "Seleccionar Todos"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p3.html
+#: Inc/PatrolTag/repo/korner-client/www/app/views/import-contacts.html
+msgid "Select Contacts"
+msgstr "Seleccione Contactos"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Sending invitations..."
+msgstr "Enviando invitaciones..."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p4.html
+msgid "Setup Complete!"
+msgstr "Configuración Completa!"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Skip Invitees"
+msgstr "Omitir Invitaciones"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/wizards/circle-setup/circle-setup-service.js
+msgid "Some generic subject line..."
+msgstr "Linea de asunto de correo..."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/fob-setup-p2.html
+msgid "Stick Location"
+msgstr "Direccion de Ubicacion del Fob"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/fob-setup-p2.html
+msgid ""
+"Success! The Stick is now communicating with the Korner server.  Enter the "
+"address at which this Stick is located."
+msgstr ""
+"Éxito! El Fob se está comunicando con los servidores de Korner. Escriba la "
+"dirección en la que este Fob se encuentra ubicado."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+#: Inc/PatrolTag/repo/korner-client/www/app/views/tag-setup.html
+msgid "Tag Setup"
+msgstr "Configuración de Tag"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid ""
+"The email address you entered is already in your Security Circle. Please "
+"enter a different email address."
+msgstr ""
+"La dirección de correo electrónico que ha introducido ya está en su círculo "
+"de Seguridad. Introduzca una dirección de correo electrónico diferente."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p1.html
+msgid ""
+"The process consists of identifying who want to invite, creating an "
+"invitation message, then sending the invitation."
+msgstr ""
+"El proceso consiste en identificar a quien quiere invitar, creando un "
+"mensaje de invitación, y a continuación, enviar la invitación."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/add-contacts.html
+msgid ""
+"To invite a single new member, enter their contact informaton below and "
+"click 'Add Contact'."
+msgstr ""
+"Para invitar a un solo miembro, introduzca su información de contacto a "
+"continuación y haga clic en \"Agregar Contacto\"."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p1.html
+msgid ""
+"To the Korner Security Circle setup process. You will be able to invite as "
+"many people as you would like (any practical limit?) to help you protect the "
+"security of your home and to notify you of potential problems."
+msgstr ""
+"Al proceso de configuración del Circulo de Seguridad Korner. Usted  podra "
+"invitar a tantas personas como le gustaría (cualquier límite práctico?) para "
+"ayudar a proteger la seguridad de su hogar y para notificarle de los "
+"problemas potenciales."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "User removed successfully."
+msgstr "Miembro removido."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p1.html
+#: Inc/PatrolTag/repo/korner-client/www/app/views/welcome-p2.html
+msgid "Welcome"
+msgstr "Bienvenido"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/welcome-p1.html
+msgid "Welcome to Korner Safe"
+msgstr "Bienvenido a Korner Safe"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid "Yes"
+msgstr "Si"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/src/app/utils/content-setup-wizards.js
+msgid ""
+"You have not sent invitations to everyone on your list. Are you sure you "
+"want to skip inviting these people?"
+msgstr ""
+"No ha enviado invitaciones a todos en su lista . ¿Seguro que desea omitir "
+"invitar a estas personas?"
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p4.html
+msgid ""
+"You may return to the Security Circle Setup process at any time to invite "
+"additional members or to check on the status of your invitations."
+msgstr ""
+"Usted puede volver al proceso de configuración del Círculo de seguridad en "
+"cualquier momento para invitar a miembros adicionales o para comprobar el "
+"estado de sus invitaciones."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p2.html
+msgid ""
+"Your current Security Circle members are listed below.  Click the blue user "
+"plus button add a new member.  Swiping on an existing member will display a "
+"list of actions you can perform."
+msgstr ""
+"Los miembros de su Círculo de Seguridad se enumeran a continuación. Haga "
+"clic en el botón azul para añadir a un nuevo miembro. Birlando un miembro "
+"existente mostrará una lista de acciones que puede realizar."
+
+#: /Users/seb/Documents/Projects/Beyond Fun
+#: Inc/PatrolTag/repo/korner-client/www/app/views/circle-setup-p4.html
+msgid "Your friends will now be invited to help protect your home."
+msgstr ""
+"Sus amigos serán invitados en instantes para ayudar a proteger su casa."
+
+#~ msgid "Securit Circle Setup"
+#~ msgstr "Configuración Circulo de Seguridad"

@@ -1,0 +1,49 @@
+md-content.korner-mobile(flex ng-controller="homeConfigController" layout="column" layout-gt-sm="row")
+  md-card(flex-sm)
+    md-button(ng-click="showSetupScreen({wizardType:wizardType.FOB_SETUP})")
+      md-list-item.korner-no-material-button-style
+        .md-avatar
+          img.korner-thumbnail40(ng-src='{{fob.imageUrl}}')
+        .md-list-item-text
+          .md-subhead.wrap-text(translate ) House Profile
+          //- div.md-caption.korner-text-color-light.wrap-text(translate) Change home name, address and/or picture.
+        
+  md-card(flex-sm)
+    md-button(ng-click="showFobProfile()")
+      md-list-item.korner-no-material-button-style
+        .md-avatar
+          img.korner-thumbnail40(src="app/img/settings_stick.png")
+        .md-list-item-text
+          .md-subhead.wrap-text(translate) Alarm Setup
+          //- .md-caption.korner-text-color-light.wrap-text(translate) Change an Extender name or add a new one.         
+        
+          
+  md-card(flex-sm)
+    md-button(ng-click="showSetupScreen({wizardType:wizardType.CIRCLE_SETUP})")
+      md-list-item.korner-no-material-button-style
+        .md-avatar
+          img.korner-thumbnail40(src="app/img/settings_circle.png")
+        .md-list-item-text
+          .md-subhead.wrap-text(translate) Circle Setup
+          //- .md-caption.korner-text-color-light.wrap-text(translate) Change information about your Circle members.
+
+  md-card(flex-sm)
+    md-button(ng-click="showSetupScreen({wizardType:wizardType.TAG_SETUP})")
+      md-list-item.korner-no-material-button-style
+        .md-avatar
+          img.korner-thumbnail40(src="app/img/settings_tag.png")
+        .md-list-item-text
+          .md-subhead.wrap-text(translate) Tag Setup
+          //- .md-caption.korner-text-color-light.wrap-text(translate) Change a Tag name, or add or remove a Tag.
+          
+  md-card(flex-sm)
+    md-button(ng-click="config.checkFirmware()")
+      md-list-item.korner-no-material-button-style
+        .md-avatar
+          img.korner-thumbnail40(src="app/img/settings_extender.png")
+        .md-list-item-text
+          .md-subhead.wrap-text(translate) Extender Setup
+          //- .md-caption.korner-text-color-light.wrap-text(translate) Change an Extender name or add a new one.         
+br
+br
+br

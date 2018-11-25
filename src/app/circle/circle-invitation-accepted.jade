@@ -1,0 +1,16 @@
+md-content.md-padding.login-bg(layout="row" style="overflow: auto;")
+  .padding(flex offset-gt-md="33" flex-gt-md="40")
+    .text-center
+      img(src='app/img/korner_logo_white.png', width='85%',  align='middle')
+    md-card(flex layout-align="left center" layout="column")
+      .item.item-divider
+        | Invitation Accepted
+        
+      md-card-content(flex)
+        md-content(flex)
+          p(translate) Congratulations, you have successfuly accepted the invite.  You can now sign in to continue.
+
+          section(layout='row', layout-align='center')
+            md-button.md-raised.md-primary( ui-sref='app.startup.splash') Continue
+
+  div(flex-gt-md)

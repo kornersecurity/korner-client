@@ -1,0 +1,47 @@
+
+div(flex layout="column" layout-fill)
+  
+  md-toolbar.md-warn(layout="row")
+    .md-toolbar-tools(flex)
+      
+      h1.korner-text-color-white(flex translate) Intrusion
+      ks-fob-action-buttons(fob='fob', is-intrusion-screen='true')
+            
+  md-content.korner-mobile(flex layout="column" layout-fill)
+    
+
+    //- House w/ status
+    md-card
+      md-list-item.md-2-line
+        img.thumbnail64.md-avatar(ng-src='{{fob.imageUrl}}')
+        .md-list-item-text
+          h4 {{ fob.fob_name }}
+          ks-fob-address(fob='fob')
+      ks-fob-status-banner(fob='fob')
+
+    // - activity
+    md-card
+      ks-korner-section-title(title='"Intrusion Activity"', pluralize-sub-title='{"0": "No events", "1": "1 event", "other": "{} events"}', count='intrusionActivityCount()')
+      md-list
+        ks-activity-list-item(ng-repeat='activity in fob.activities.activities | filter:intrusionActivityFilter | orderBy: "occurredAt": true', activity='activity')
+
+    //- Messages
+    md-card
+      ks-korner-section-title(title='"Messages"')
+      ion-list(can-swipe="true")
+        ks-message-list-item(ng-repeat='message in fob.intrusion.messages.messages | orderObjectBy: "updated_at": false', message='message', on-edit-method='onEditMessage(message)', on-delete-method='onDeleteMessage(message)')
+
+    br
+    br
+    br
+            
+ion-footer-bar
+  .row.wizard-section-intro(layout="col" layout-sm="row" layout-align="center")
+    .col.col-30.text-center.col-center
+       md-button.md-raised.md-warn(ng-click="callPolice()")
+         md-icon(md-svg-src='app/img/ic_phone_in_talk_white_24px.svg')
+         | &nbsp; Call Police
+     .col.col-30.text-center.col-center
+       md-button.md-raised.md-primary(ng-click="showQuickActions(actionItems)")
+         md-icon(md-svg-src='app/img/ic_more_vert_white_24px.svg')
+         | Quick Action

@@ -1,0 +1,45 @@
+.wizard
+  .wizard-section-intro
+    //- h3(translate) Create Security Circle
+    p(translate) Add friends, family and neighbours who can help in the event of an alert.
+    
+    //- .row(layout="col" layout-sm="row" layout-align="center")
+    //-   md-button.md-primary.small-text(ng-click="showImportContacts()", translate) Import Contacts 
+    //-   md-button.md-primary.small-text(ng-click="showAddContact('Add', 'add')", translate) Create Contact
+    
+  section.md-padding
+    p 
+      strong(translate) Default settings: 
+      translate &nbspMembers will not receive alerts unless they are manually forwarded by you.
+    p
+      strong(translate) Housemates: 
+      translate &nbspInvite to circle. Once they accept, edit their settings to expand access.
+
+  section.md-padding
+    md-button.md-raised.md-primary(layout-fill, ng-if="$root.appRuntime.canImportContacts", ng-click="showImportContacts()", translate, style="margin: 0px;") Select From Contacts on device
+    br(ng-if="$root.appRuntime.canImportContacts === true")
+    br(ng-if="$root.appRuntime.canImportContacts === true")
+    md-button.md-raised.md-primary(layout-fill, ng-click="showAddContact('Add', 'add')", translate, style="margin: 0px;") Enter Contact Manually
+
+        
+    //- p(translate) Once members of your security circle are selected we are going to send them an email, and copy you, explaining how it all works.
+
+md-card
+  .dashboard-section.bg-grey(ng-show="hasPendingInvites()")
+    span(translate) Pending Invites
+    span.pull-right.text-nowrap
+     .dashboard-section-info
+       ng-pluralize(count='wizard.circleSetup.invitedUsersCount' when='{"0": "No Members", "1": "1 Member", "other": "{} Members"}')              
+    
+  ion-list(can-swipe="false")
+    ion-item.item-icon-left(ng-repeat="user in wizard.circleSetup.users | filter:{fob_user_status_id:fobUserStatusConst.STATUS_NEW} | orderBy:'fullname'", item="user")
+      i.icon.ion-paper-airplane.icon-dark
+      h4 {{user.fullName()}} &nbsp
+        span.korner-text-color-grey.korner-list-email ({{user.email}})
+      p.buttons
+        md-button.korner-list-md-button.md-primary(md-theme="alarmTheme" ng-click="editUser(user)", translate) Edit
+        | &nbsp&nbsp
+        md-button.korner-list-md-button.md-warn(md-theme="alarmTheme" ng-click="removeUser(user)", translate) Remove
+
+section.md-padding.text-center  
+  p(translate) Once you have completed entering contacts, press next to send Invite

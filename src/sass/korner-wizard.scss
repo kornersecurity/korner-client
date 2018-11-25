@@ -1,0 +1,226 @@
+.green_text {
+  color: #fff;
+}
+.small-icon {
+  font-size: 14px;
+}
+.large-icon {
+  font-size: 24px;
+}
+.light-text {
+  color: Grey;
+}
+.wide-as-needed {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.wrap-text {
+  overflow: none;
+  text-overflow: none;
+  white-space: normal;
+  line-height: 100%;
+}
+.wizard {
+
+}
+.wizard .full-width-input {
+  width: 100%;
+}
+.wizard-form-error {
+  padding: 2px 0 2px 16px;
+  color: red;
+}
+.wizard-section-intro {
+  padding-top: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.wizard-section-intro h1 {
+  font-size: 18px!important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: #222;
+}
+.wizard-section-intro h2 {
+  font-size: 16px!important;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #444;
+}
+.wizard-section-intro h3 {
+  font-size: 14px!important;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: #444;
+}
+.wizard-section-intro p {
+  font-size: 13px!important;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #666;
+}
+.wizard-section-intro .wizard-link {
+  font-size: 14px!important;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.wizard-section-intro .wizard-label {
+  display: block;
+  font-size: 10px!important;
+  padding-left: 15px;
+  color: #999;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.wizard-section-intro .subtle-padding {
+  padding-top: 2px;
+  padding-bottom: 8px;
+}
+.wizard-section-intro .wizard-progress {
+  font-size: 14px!important;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: #fff;
+  background: #6c3;
+  width: 95px;
+  height: 20px;
+  line-height: 20px;
+  border-radius: 25px;
+}
+.wizard-section-intro .toggle {
+  font-size: 16px!important;
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+}
+.wizard-section-intro .image-example {
+  display: block;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wizard-section-intro .searching {
+  opacity: 0.2;
+}
+.wizard-section-intro .found {
+  opacity: 1.0;
+}
+.wizard-section-intro .problem {
+  color: #f0b840;
+}
+.wizard-section-intro .alert {
+  color: #ef4e3a;
+}
+.wizard-section-intro .success {
+  color: #6c3;
+}
+.wizard-section-intro .grey {
+  color: #888;
+}
+.wizard-section-intro .dark {
+  color: #444;
+}
+.wizard-section-intro .next {
+  font-weight: 700;
+  color: #333;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+}
+.wizard-selection md-whiteframe {
+  background: #fff;
+  margin: 20px;
+  padding: 20px;
+}
+.wizard-list {
+  font-size: 12px!important;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  position: relative;
+  height: 50px;
+}
+.wizard-list p.message {
+  overflow: none;
+  text-overflow: none;
+  white-space: normal;
+  padding-left: 15px;
+}
+.wizard-list p.info {
+  display: block;
+  font-size: 10px!important;
+  color: #999;
+  font-weight: 700;
+  text-transform: uppercase;
+  position: absolute;
+  bottom: 20px;
+  right: 10px;
+  /* padding-right:100px; */
+}
+.wizard-selection {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+.wizard-selection .wizard-icon {
+  float: left;
+  padding-left: 10px;
+}
+.wizard-selection .no-border {
+  border: 0;
+}
+.wizard-selection p.description {
+  overflow: none;
+  text-overflow: none;
+  white-space: normal;
+  padding-left: 5px;
+  font-size: 13px!important;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #444;
+}
+.wizard-selection p.question {
+  overflow: none;
+  text-overflow: none;
+  white-space: normal;
+  /* padding-left: 35px; */
+  font-size: 13px!important;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: #444;
+}
+.md-button.md-default-theme.small-text {
+  font-size: 12px;
+}
+.wizard-step-number {
+  font-size: 16px!important;
+  text-align: center;
+  vertical-align: middle;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: #fff;
+  background: #6c3;
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  border-radius: 100%;
+  margin-right: 8px;
+}
+.wizard-step-number2 {
+  font-size: 16px!important;
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: lowercase;
+  color: #fff;
+  background: #4a87ee;
+  height: 25px;
+  width: 25px;
+  line-height: 25px;
+  border-radius: 100%;
+  margin-top: 8px;
+}
+.wizard-step-number-nudge {
+  padding-top: 0;
+}

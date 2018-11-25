@@ -1,0 +1,30 @@
+md-content(flex)
+  form(name="profileForm", novalidate ng-controller="profileInfoController") 
+    div(layout='column' layout-margin='' layout-fill='' layout-padding='') 
+
+      md-list-item( style="padding: 0px !important;")
+        img(ng-src='{{profile.data.imageUrl}}' ng-click='profile.showPictureActionSheet()' width="80" height="80" id="profileImage")
+        input(type="file"  onchange="angular.element(this).scope().profile.showImageFromFileSelect(this)" ng-file-select="profile.showImageFromFileSelect($files)" style="display:none;" id="fileInput" name="filedata" accept="image/jpg")
+        .md-list-item-text.md-padding
+          .md-subhead(translate) Profile Picture
+          .md-caption.korner-text-color-light.wrap-text(translate) Click image to upload your own (JPG files only).
+      
+      md-input-container.md-input
+        label(translate) First Name
+        input.full-width-input.ng-touched(type="text", focus="true", ng-model="profile.data.first_name",  name="uName", required="true", ng-change="profile.setProfileModified()")
+        div(ng-messages="profileForm.uName.$error" role="alert"  ng-show="profileForm.uName.$touched || profileForm.uName.$submitted")
+          div.text-nowrap(ng-message="required") First name is required. 
+        
+      md-input-container.md-input
+        label(translate) Last Name
+        input.full-width-input.ng-touched(type="text", ng-model="profile.data.last_name", ng-change="profile.setProfileModified()")
+              
+      md-input-container.md-input
+        label(translate) Email
+        input.full-width-input.ng-touched(type="email", ng-model="profile.data.email", name="myEmail", required="true", ng-change="profile.setProfileModified()")
+        div(ng-messages="profileForm.myEmail.$error" role="alert"  ng-show="profileForm.myEmail.$touched || profileForm.myEmail.$submitted")
+          div.text-nowrap(ng-message="required") Email is required. 
+          div.text-nowrap(ng-message="email") Please enter a valid email address.
+
+    section(layout='row', layout-align='center')
+      md-button.md-raised.md-primary(id='resetButton' ng-disabled='profileForm.$invalid || profile.profileModified === false', ng-click='profile.updateProfile()') Update Profile Info

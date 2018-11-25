@@ -1,0 +1,11 @@
+
+.wizard-section-intro.korner-full-height
+  h3 Welcome
+  p Welcome to home security in its simplest form. We will walk you through each step of the process. Just click 
+    span.next(translate) &nbspnext&nbsp
+    translate to get started (or to continue where you left off).
+    
+  md-list  
+    md-list-item.korner-step-item(ng-repeat="wizard in wizard.wizardManagerData.wizardsForSummary")
+      span.wizard-step-number &nbsp{{$index + 1}}&nbsp
+      h5(translate) {{wizard.title}}

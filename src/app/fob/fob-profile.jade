@@ -1,0 +1,29 @@
+
+md-dialog(flex)
+  md-toolbar.md-primary(flex md-theme="wizardTheme")
+    .md-toolbar-tools
+      h2.korner-text-color-white.md-flex(translate) Alarm Setup
+      span(flex)
+      md-button.md-icon-button(ng-click="fobConfiguration.closeModal()")
+        md-icon(md-svg-src="app/img/ic_close_white_24px.svg")
+            
+  //- md-content(flex)
+  //- md-dialog-content.md-dynamic-height(flex )
+  md-tabs.md-border-bottom(flex id="kornerFobConfiguration" layout="column" md-selected="selectedIndex")
+    md-tab(id="fobConfigurationTab")
+      md-tab-label
+        translate Settings
+      md-tab-body.md-padding        
+        include fob/_fob-config
+              
+    md-tab(id="armingProfileTab")
+      md-tab-label
+        translate Zones
+      md-tab-body
+        include fob/_arming-profile
+        
+    md-tab(id="armingScheduleTab")
+      md-tab-label
+        translate Schedule
+      md-tab-body
+        include fob/_arming-schedule

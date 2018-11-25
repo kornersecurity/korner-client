@@ -1,0 +1,13 @@
+md-content(flex layout="column" ng-class="{'korner-no-scroll' : $mdMedia('gt-sm')}")
+  ui-view.tabs-icon-top(layout-fill ng-if="$mdMedia('sm')" name='home-tabs-content')
+  div.tabs-icon-top.korner-full-height(layout-fill ng-if="$mdMedia('gt-sm') && !$mdMedia('sm')"  ui-view='home-dashboard-content')
+
+
+ion-tabs.tabs-icon-top(layout="column" hide-gt-sm style="max-height:50px!important;" flex)
+  
+  ion-tab(title='Dashboard', ng-if='fobUser.hasActivityBasicFeature() === true', icon='icon ion-ios-home', ui-sref='app.home.tabs.dashboard' badge='issuesBadge' badge-style='badge-assertive')
+  ion-tab(title='Circle Feed', ng-if='fobUser.hasChatFeature() === true', icon='icon ion-ios-people', ui-sref='app.home.tabs.circle-feed' badge='messagesBadge' badge-style='badge-balanced' on-select="onCircleFeedSelected()")
+  ion-tab(title='Settings', ng-if='fobUser.hasConfigFeature() === true', icon='icon ion-gear-b', ui-sref='app.home.tabs.config' badge='firmwareUpdateBadge' badge-style='badge-energized')
+
+md-button.md-fab.md-warn.md-mini.md-fab-bottom-right(ng-click='home.onNewMessage($event)' hide-gt-sm show-sm ng-if='home.showChatMessageButton === true')
+  md-icon(md-svg-src='app/img/ic_mode_edit_white_24px.svg')

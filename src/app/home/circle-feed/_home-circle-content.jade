@@ -1,0 +1,12 @@
+//- progress bar
+div(flex ng-show="checkingForUpdates")
+  md-progress-linear.md-primary(md-mode='indeterminate')
+
+  //- Messages
+
+md-list()
+  md-subheader.md-no-sticky(translate) Security Circle Messages
+  //- md-button.md-fab.md-warn.md-mini.md-fab-bottom-right(ng-click='onNewMessage($event)')
+  //-   md-icon(md-svg-src='app/img/ic_mode_edit_white_24px.svg')
+  br
+  ks-message-list-item(ng-repeat='message in fob.messages.messages | orderObjectBy: "updated_at": false', message='message', on-edit-method='onEditMessage(message)', on-delete-method='onDeleteMessage(message)')

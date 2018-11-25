@@ -1,0 +1,58 @@
+{
+  "selectedEnvironment": "test",
+  "local": {
+    "appSettingsConst": {
+      "httpProtocol": "http://",
+      "socketProtocol": "ws://",
+      "endPoint": "localhost:3000",
+      "webEndPoint": "localhost:8100",
+      "debug": true,
+      "maps": true,
+      "uglify": false
+    }
+  },
+  "dev": {
+    "appSettingsConst": {
+      "httpProtocol": "https://",
+      "socketProtocol": "wss://",
+      "endPoint": "korner-dev.herokuapp.com",
+      "webEndPoint": "mydev.herokuapp.com",
+      "debug": true,
+      "maps": true,
+      "uglify": false
+    }
+  },
+  "test": {
+    "appSettingsConst": {
+      "httpProtocol": "https://",
+      "socketProtocol": "wss://",
+      "endPoint": "korner-test.herokuapp.com",
+      "webEndPoint": "mytest.kornersafe.com",
+      "debug": true,
+      "maps": true,
+      "uglify": false
+    }
+  },
+  "prod": {
+    "appSettingsConst": {
+      "httpProtocol": "https://",
+      "socketProtocol": "wss://",
+      "endPoint": "secure.kornersafe.com",
+      "webEndPoint": "myhome.kornersafe.com",
+      "debug": false,
+      "maps": false,
+      "uglify": true
+    }
+  },
+  "seb": {
+    "appSettingsConst": {
+      "httpProtocol": "http://",
+      "socketProtocol": "ws://",
+      "endPoint": "192.168.1.114:3000",
+      "webEndPoint": "localhost:7100",
+      "debug": true,
+      "maps": true,
+      "uglify": false
+    }
+  }
+}

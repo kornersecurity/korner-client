@@ -1,0 +1,12 @@
+
+.wizard-section-intro.korner-full-height
+  h3(translate ng-if="wizard.wizardManagerData.currentWizard.type === wizardType.FOB_SETUP") Welcome
+  p(translate ng-if="wizard.wizardManagerData.currentWizard.type === wizardType.FOB_SETUP")  Welcome to home security in its simplest form. We will walk you through each step of the process. Just click 
+    span.next(translate) &nbspnext&nbsp
+    translate to get started (or to continue where you left off).
+    
+
+  md-list  
+    md-list-item.korner-step-item(ng-repeat="wizard in wizard.wizardManagerData.wizardsForSummary")
+      span.wizard-step-number &nbsp{{wizard.title}}&nbsp
+      p(translate) {{wizard.title}}

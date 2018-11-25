@@ -1,0 +1,35 @@
+ion-content.login-bg(layout="row" layout-align="center center")
+
+  .padding(flex-gt-sm)
+    .text-center
+      img.hide-on-keyboard-open(src='app/img/korner_logo_white.png', width='85%',  align='middle')    
+    .card
+      .item.item-divider
+        | Welcome
+        
+      .item-body
+        include account/_alert-messages        
+        span Please enter your login credentials.
+        form(role='form' name='loginForm' novalidate ng-keypress='catchEnter($event)' keyboard-attach)        
+          div(layout='column' layout-margin='' layout-fill='' layout-padding='')
+            md-input-container
+              label Email
+              input(type='email' name="myEmail" autocomplete='off' ng-model='$storage.email' required='required')
+              div(ng-messages="loginForm.myEmail.$error" ng-show="loginForm.myEmail.$touched || loginForm.myEmail.$submitted")
+                div.text-nowrap(ng-message="required") Email is required 
+                
+            md-input-container
+              label Password
+              input(type='password' name="myPass" autocomplete='off' ng-model='login.password' ng-minlength='6' required='required')
+              div(ng-messages="loginForm.myPass.$error" ng-show="loginForm.myPass.$touched || loginForm.myPass.$submitted")
+                div.text-nowrap(ng-message="required") Password is required 
+                
+            section(layout='row', layout-align='center')
+              md-button.md-primary.small-text(id='registerButton' ui-sref='app.account.registration')  Registration
+              md-button.md-primary.small-text(id='forgotPasswordButton' ui-sref='app.account.forgot-password') Forgot Password
+
+          section(layout='row', layout-align='center')
+            md-button.md-raised.md-primary(id='loginButton' ng-click='onLogin()') Login
+      br
+      .text-right.korner-text-color-light 
+        small version {{$root.appRuntime.version}}.{{$root.appRuntime.build}}{{$root.appRuntime.environment}}&nbsp&nbsp

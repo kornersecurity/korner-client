@@ -1,0 +1,22 @@
+
+
+md-subheader.md-no-sticky.ks-subheader(style="!important; padding-bottom:5px!important;") 
+  translate {{title}} &nbsp 
+  i.fa.fa-1x(ng-if="hasPlusMinusIcon" hide-gt-sm, ng-class="internalControl.showMinusSign ? 'fa-caret-down' : 'fa-caret-right'") &nbsp
+  span.md-padding
+    span.pull-right.text-nowrap(ng-if='hasPluralizeSubTitle()')
+      ng-pluralize(count='count' when='pluralizeSubTitle') 
+      | &nbsp&nbsp
+    span.pull-right.text-nowrap(ng-if='!hasPluralizeSubTitle()')
+      | {{subTitle}}
+   br
+
+//- .section-title
+//-   span(translate) 
+//-     | {{title}}
+//-   span(translate)
+//-     .section-title-right
+//-       div(ng-if='hasPluralizeSubTitle()')
+//-         ng-pluralize(count='count' when='pluralizeSubTitle')
+//-       div(ng-if='!hasPluralizeSubTitle()')
+//-         | {{subTitle}}

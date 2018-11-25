@@ -1,0 +1,30 @@
+ion-modal-view(has-header='true' has-footer='true',  ng-controller="fobSetupController.manualSetupChoiceModalController")
+  ion-header-bar.bar-dark
+    h1.title(translate) Manual Stick Setup
+  
+  ion-content
+    .wizard
+      .wizard-section-intro
+        p(translate) The bar code and address can be found on the back of the Stick (see example below). 
+          br
+          translate You can either take a picture of the bar code or enter the address using your keypad. Select your choice for manual setup below.
+        .col.text-center
+          img.image-example(src='app/img/barcode-sample.jpg')
+        br
+        .row
+          .col.text-center.col-center
+            .button.button-clear.button-positive.wizard-link(ng-click='wizard.fobSetup.showQRCodeSetup()')
+              .fa.fa-camera
+              translate &nbspTake Picture
+          .col.text-center.col-center
+            .button.button-clear.button-positive.wizard-link(ng-click='wizard.fobSetup.showMacAddressSetup()') 
+              .fa.fa-keyboard-o
+              translate &nbspEnter Code
+              
+                            
+  ion-footer-bar
+    .row.wizard-section-intro
+      .col
+      .col.text-center.col-center
+        .button.button-clear.button-dark.wizard-link(type='cancel', ng-click='wizard.fobSetup.closeModal()', translate) Close
+      .col

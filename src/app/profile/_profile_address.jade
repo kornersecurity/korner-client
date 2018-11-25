@@ -1,0 +1,50 @@
+md-content(flex)
+  form(novalidate name="profileAddressForm" ng-controller="profileAddressController")
+    div(layout='column' layout-margin='' layout-fill='' layout-padding='')
+      md-button.md-primary.md-raised(md-theme="menuTheme", ng-disabled="profileSetup.disableAutoFind", ng-click='profileSetup.findUserLocation()') auto fill home location
+            
+      md-input-container
+        label Address line 1
+        input(type="text" name="line1" ng-model="profileSetup.editableAddress.line_1" required ng-change="checkForChanges()")    
+        div(ng-messages="profileAddressForm.line1.$error")
+          div.text-nowrap(ng-message="required") Street address is required 
+
+      md-input-container
+        label Address line 2
+        input(type="text" name="line2" ng-model="profileSetup.editableAddress.line_2" ng-change="checkForChanges()")    
+        
+      md-input-container
+        label(translate) Country
+        md-select(placeholder="Country" name="country" ng-model="profileSetup.editableAddress.country" required ng-change="checkForChanges()")
+          md-option(ng-repeat="country in profileSetup.countries" value="{{country.name}}") {{country.name}}
+        div(ng-messages="profileAddressForm.country.$error")
+          div.text-nowrap(ng-message="required") Country is required 
+
+      md-input-container
+        label City
+        input(type="text" name="city" ng-model="profileSetup.editableAddress.city" required ng-change="checkForChanges()")    
+        div(ng-messages="profileAddressForm.city.$error" )
+          div.text-nowrap(ng-message="required") City name is required 
+
+      md-input-container(ng-if="profileSetup.editableAddress.country!= null && profileSetup.editableAddress.country.toLowerCase().indexOf('united states') === -1")
+        label State/Province
+        input(type="text" name="stateProvince" ng-model="profileSetup.editableAddress.state" required ng-change="checkForChanges()")    
+        div(ng-messages="profileAddressForm.stateProvince.$error" )
+          div.text-nowrap(ng-message="required") State/Province is required 
+          
+      md-input-container(ng-if="profileSetup.editableAddress.country.toLowerCase().indexOf('united states') > -1")
+        label(translate) State
+        md-select(placeholder="State" name="state" ng-model="profileSetup.editableAddress.state" required ng-change="checkForChanges()")
+          md-option(ng-repeat="state in profileSetup.states" value="{{state.abbrev}}") {{state.abbrev}}
+        div(ng-messages="profileAddressForm.state.$error")
+          div.text-nowrap(ng-message="required") Sate is required 
+
+      md-input-container
+        label Zipcode (Postal Code)
+        input(type="text" name="zipcode" ng-model="profileSetup.editableAddress.zipcode" required ng-change="checkForChanges()")    
+        div(ng-messages="profileAddressForm.zipcode.$error")
+          div.text-nowrap(ng-message="required") Zipcode is required 
+      br
+        
+    section(layout='row', layout-align='center')
+      md-button.md-raised.md-primary(id='resetButton' ng-disabled='profileAddressForm.$invalid || profileSetup.addressChanged === false', ng-click='profileSetup.updateProfileAddress()') Update Address

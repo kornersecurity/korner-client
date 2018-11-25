@@ -1,0 +1,22 @@
+ion-content.login-bg(layout="row" layout-align="center center")
+  .padding(flex-gt-sm)
+    .text-center
+      img(src='app/img/korner_logo_white.png', width='85%',  align='middle')
+    .card
+      .item.item-divider
+        | Account Verification Failed
+        
+      .item-body
+        p(translate) The account verification process failed.  You will need to request a new verification code to complete your registration. 
+        
+        form(role='form', name='requestCodeForm', novalidate='novalidate')
+          md-input-container.md-input
+            label Email
+            input(type='email', name="myEmail", placeholder='email', ng-model='request_code.email', required='required')
+            div(ng-messages="requestCodeForm.myEmail.$error"  ng-show="requestCodeForm.myEmail.$touched || requestCodeForm.myEmail.$submitted")
+              div.text-nowrap(ng-message="required") Email is required
+              div.text-nowrap(ng-message="email") Please enter a valid email address.
+              
+        section(layout='row', layout-align='center')
+          md-button.md-raised(id='cancelButton' ui-sref='app.account.login') Cancel
+          md-button.md-raised.md-primary(id='registerButton'  ng-disabled='requestCodeForm.$invalid' ng-click='requestVerificationCode()') Request New Code

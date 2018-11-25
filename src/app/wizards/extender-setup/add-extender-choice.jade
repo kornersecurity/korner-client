@@ -1,0 +1,14 @@
+.wizard
+  .wizard-section-intro
+    h3(translate) Extender
+
+    p(translate) An Extender may be required if one or more Tags are located too far from the Stick.
+    
+    br
+    .row(translate) Would you like to set up an Extender?
+      
+
+        
+    section(layout='row', layout-align='center')
+      md-button.md-raised(ng-click="wizard.extenderSetup.skipExtenderSetup()", translate) No
+      md-button.md-raised.md-primary(ng-click="wizard.extenderSetup.startExtenderSetup()", translate) Yes

@@ -1,0 +1,20 @@
+p.dashboard-address-info(ng-if='fob.address !== undefined && fob.address.address_id !== ""')
+  span(ng-if='fob.address.line_1.length > 0')
+    | {{fob.address.line_1}},&nbsp
+  span(ng-if='fob.address.line_2.length > 0')
+    | {{fob.address.line_2}}
+  br
+  span(ng-if='fob.address.city.length > 0')  
+    | {{fob.address.city}},&nbsp
+  span(ng-if='fob.address.state.length > 0')  
+    | {{fob.address.state}},&nbsp
+  span(ng-if='fob.address.zipcode.length > 0')  
+    | {{fob.address.zipcode}} 
+  br
+  span(ng-if='showVersion === "true"')
+    Translate Firmware Version: {{formatFirmwareVersion()}}
+p.dashboard-address-info(ng-if='fob.address === undefined || fob.address.address_id === ""')
+  span(translate) No Address Available
+  br
+  span(ng-if='showVersion === "true"')
+    Translate Firmware Version: {{formatFirmwareVersion()}}

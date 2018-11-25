@@ -1,0 +1,17 @@
+.wizard-section-intro
+  h3(translate) Name Your Tag
+  
+  //- .md-padding.wizard-selection
+  //-   .text-center
+  //-    h3 {{wizard.tagSetup.tag.tagFullName}}
+
+  form(novalidate name="myForm" ng-keypress='catchEnter($event)' keyboard-attach)
+    md-input-container
+      label Tag Name
+      input(type="text", focus="true", name="tagName" ng-model="wizard.tagSetup.tag.tag_name" ng-change="wizard.tagSetup.p7.validateData()" required)
+      div(ng-messages="myForm.tagName.$error")
+        div.text-nowrap(ng-message="required") Tag name is required  
+
+  section(layout="column")
+    h3(translate) Why name the Tag?
+    h4(translate) If there is an intrusion, you and your Security Circle will know where it is happening.

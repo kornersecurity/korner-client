@@ -1,0 +1,21 @@
+
+md-dialog(flex)
+  
+  md-toolbar.md-primary(flex md-theme="wizardTheme")
+    .md-toolbar-tools
+      h2.korner-text-color-white.md-flex(translate) Korner Safe Credits
+      span(flex)
+      md-button.md-icon-button(ng-click="creditsScreen.closeModal()")
+        md-icon(md-svg-src="app/img/ic_close_white_24px.svg")
+          
+  md-dialog-content(flex layout-fill)
+    md-content(flex id="kornerNotices" layout="column" layout-fill)
+        h5.text-center(translate) What are Credits and how do I earn them?
+        p.md-margin(translate) Credits can be applied toward any Korner purchase under your current account.  Credits are earned each time one of your Security Circle members purchases a Korner (this purchase must include a Stick and annual fee).
+
+        h5.text-center(translate) How do I use Credits?
+        p.md-margin(translate) To apply your Credits to a purchase:
+        p.md-margin(translate)  1. Make your purchase at kornersafe.com (we cannot apply your credits to a purchase that is not completed on our website).
+        p.md-margin(translate)  2. When filling out the address form, you must use the email address on this account.
+
+        p.md-margin(translate) Note that if you have any outstanding credits at the time an annual fee is due, they will be automatically applied.

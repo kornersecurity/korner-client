@@ -1,0 +1,21 @@
+.wizard-section-intro
+  h3(translate) Extender Activation
+    
+.md-padding.wizard-selection
+  //- img.image-example(src='app/img/korner-extender.png' ng-class="{'searching':!wizard.extenderSetup.p3.extenderFound && !wizard.extenderSetup.p3.fobMissing}")
+  .text-center
+    ion-spinner(icon="lines", ng-if="wizard.extenderSetup.p3.activatingExtender && !wizard.extenderSetup.p3.fobMissing")
+    i.fa.fa-exclamation-triangle.fa-2x.problem(ng-if="wizard.extenderSetup.p3.fobMissing || (!wizard.extenderSetup.p3.extenderFound && !wizard.extenderSetup.p3.activatingExtender)")
+    i.fa.fa-check.fa-2x.success(ng-if="wizard.extenderSetup.p3.extenderFound")
+    h3(ng-if="wizard.extenderSetup.p3.extenderFound" translate) Extender found!
+  div(ng-if="!wizard.extenderSetup.p3.extenderFound ")
+    h3.text-center(ng-if="!wizard.extenderSetup.p3.fobMissing && wizard.extenderSetup.p3.activatingExtender", translate) Searching for Extender
+    h3.text-center(ng-if="!wizard.extenderSetup.p3.extenderFound && !wizard.extenderSetup.p3.activatingExtender && wizard.extenderSetup.p3.fobMissing", translate) Stick Missing
+    br
+    .text-center(ng-if="!wizard.extenderSetup.p3.extenderFound && !wizard.extenderSetup.p3.activatingExtender && !wizard.extenderSetup.p3.fobMissing")
+      p(translate) Problem searching for Extender. Please Search Again.
+      a.button.button-clear.button-positive.wizard-link(ng-if="wizard.extenderSetup.p3.canRetry && !wizard.extenderSetup.p3.activatingExtender", ng-click="wizard.extenderSetup.p3.startActivation()", translate) Search Again
+    .text-center(ng-if="wizard.extenderSetup.p3.fobMissing")
+      p(translate) Please make sure the Stick is properly connected to your router and power source.  
+  
+    

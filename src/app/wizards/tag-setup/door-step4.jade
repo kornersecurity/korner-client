@@ -1,0 +1,26 @@
+.wizard-section-intro
+  h3(translate) Tag Test
+      
+.md-padding.wizard-selection
+  .text-center
+    i.fa.fa-exclamation-triangle.fa-2x.problem(ng-if="wizard.tagSetup.p8.currentStep.failed && !wizard.tagSetup.p8.stepsCompleted")
+    i.fa.fa-check.fa-2x.success(ng-if="wizard.tagSetup.p8.stepsCompleted && !wizard.tagSetup.p8.currentStep.failed")
+
+  div(ng-if="!wizard.tagSetup.p8.stepsCompleted && !wizard.tagSetup.p8.currentStep.failed")
+    md-list
+      md-list-item.korner-step-item(ng-repeat="step in wizard.tagSetup.p8.steps" ng-if="step.uiStyle === 'page'" ng-class="{'korner-alpha-zero': !step.started, 'searching':!step.started && !step.completed && !step.failed}")
+        span.wizard-step-number &nbsp{{step.stepIndex}}&nbsp
+        md-list-item-text
+          p(translate) {{step.title}}
+        .md-secondary
+          ion-spinner(icon="ripple" ng-if="step.started && !step.completed && !step.failed")
+          i.fa.fa-check.fa-2x.success(ng-if="step.completed && !step.failed")  
+          i.fa.fa-exclamation-triangle.fa-2x.problem(ng-if="step.failed")
+              
+  div(ng-if="wizard.tagSetup.p8.currentStep.failed && !wizard.tagSetup.p8.stepsCompleted")
+    p(translate) Problem testing Tag. Please ensure the door is properly closed and try again.
+    .text-center
+      a.button.button-clear.button-positive.wizard-link(ng-click="wizard.tagSetup.p8.restartActivation()", translate) Test Tag Again
+
+  div(ng-if="wizard.tagSetup.p8.stepsCompleted && !wizard.tagSetup.p8.currentStep.failed")
+    p(translate) Congratulations, you have successfully tested the Tag attached to this door. 

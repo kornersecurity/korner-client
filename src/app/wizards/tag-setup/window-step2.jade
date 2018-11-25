@@ -1,0 +1,44 @@
+.wizard-section-intro
+  h3(translate) Tag Activation (must be completed or Tag won't connect to Stick)
+  md-list
+    md-list-item.korner-step-item 
+      span.wizard-step-number &nbsp1&nbsp
+      p(translate) Slide cover off Tag, even if you've already removed battery strip.
+
+    md-card.md-padding.text-center(layout layout-align="center center")
+      img.md-card-image.korner-wizard-image(src='app/img/tag_wizard/remove_tag_cover.png')
+      
+  md-list
+    md-list-item.korner-step-item 
+      span.wizard-step-number &nbsp2&nbsp
+      p(translate) Remove battery strip while pressing on battery (or skip this step if you've already removed the battery strip)
+             
+    md-list-item.korner-step-item 
+      span.wizard-step-number &nbsp3&nbsp
+      p(translate) Slide cover back on Tag 
+      
+    md-card.md-padding.text-center(layout layout-align="center center")
+      img.korner-wizard-image(src='app/img/tag_wizard/tag_installation.jpg')
+
+.md-padding.wizard-selection
+  //- img.image-example(src='app/img/korner-tag.png' ng-class="{'searching':!wizard.tagSetup.p6.tagFound && !wizard.tagSetup.p6.fobMissing}")
+  .text-center
+    ion-spinner(icon="lines", ng-if="wizard.tagSetup.p6.activatingTag && !wizard.tagSetup.p6.fobMissing")
+    i.fa.fa-exclamation-triangle.fa-2x.problem(ng-if="!wizard.tagSetup.p6.tagFound && !wizard.tagSetup.p6.activatingTag")
+    i.fa.fa-check.fa-2x.success(ng-if="wizard.tagSetup.p6.tagFound")
+  div(ng-if="!wizard.tagSetup.p6.tagFound ")
+    h3.text-center(ng-if="!wizard.tagSetup.p6.fobMissing", translate) Searching for Tag
+    h3.text-center(ng-if="!wizard.tagSetup.p6.tagFound && !wizard.tagSetup.p6.activatingTag && wizard.tagSetup.p6.fobMissing", translate) Stick Missing
+    br
+    div(ng-if="!wizard.tagSetup.p6.tagFound && !wizard.tagSetup.p6.activatingTag && !wizard.tagSetup.p6.fobMissing")
+      p(translate) Problem searching for Tag. Press Search Again and repeat steps 1 and 3 above.
+      .text-center
+        a.button.button-clear.button-positive.wizard-link(ng-if="wizard.tagSetup.p6.canRetry && !wizard.tagSetup.p6.activatingTag", ng-click="wizard.tagSetup.p6.startActivation()", translate) Search Again
+    .text-center(ng-if="wizard.tagSetup.p6.fobMissing")
+      p(translate) Please make sure the Stick is properly connected to your router and power source.  
+  div(ng-if="wizard.tagSetup.p6.tagFound")
+    //- h3.text-center(translate) {{wizard.tagSetup.tag.eui64}}
+    h3.text-center(translate) Tag Activated
+    
+
+  

@@ -1,0 +1,54 @@
+doctype
+html
+  head
+    meta(charset='utf-8')
+    meta(name='viewport', content='initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width, height=device-height, target-densityDpi=device-dpi')
+    meta(name="apple-itunes-app" content="app-id=1006928946")
+    //- Enable all requests, inline styles, and eval()
+    meta(http-equiv="Content-Security-Policy", content="default-src *; style-src * 'unsafe-inline'; font-src *;connect-src *; script-src * 'unsafe-inline' 'unsafe-eval'")
+    //- Add to homescreen for Chrome on Android 
+    meta(name="mobile-web-app-capable" content="yes")
+
+    //- Add to homescreen for Safari on iOS
+    meta(name="apple-mobile-web-app-capable" content="yes")
+    meta(name="apple-mobile-web-app-status-bar-style" content="black")
+    meta(name="apple-mobile-web-app-title" content="Korner Security")
+    
+    title Korner Home Security
+
+    // compiled css output
+    link(href='css/ionic.app.min.css', rel='stylesheet')
+    link(href='css/font-awesome.css', rel='stylesheet')
+    link(href='css/angular-material.css', rel='stylesheet')
+
+    link(href="https://fonts.googleapis.com/css?family=RobotoDraft:400,500,700", rel="stylesheet", type="text/css")
+      
+    
+
+    // ionic/angularjs js
+    //- script(src='lib/ionic.bundle.js')
+
+    // Geolocation for Fob Setup --should be lazy loaded    
+    script(src='https://maps.googleapis.com/maps/api/js?sensor=true')
+    //- script(src='https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=true&key=AIzaSyCvGRCzTiq_mvRUk5PXVzrvgD7-QDjduUk')
+    //- script(src='lib/angularjs-geolocation.min.js')
+    //- script(src='lib/angular-reverse-geocode.js')
+
+    // your app's js
+    //- script(src='lib/vendor.bundle.min.js')
+    
+    // bower:js
+    // endbower
+    
+    //- script(src='lib/ng-cordova.min.js')
+    // cordova script (this will be a 404 during development)
+    script(src='cordova.js')
+      
+    script(src='app/js/app.bundle.min.js')
+    script(src='app/js/po/es.js')
+    
+      
+  body(ng-app='app' ng-controller='app.controller' layout="column" id="app" layout-fill)
+    
+    div(ng-if="false" layout-fill style="background: url('../app/img/backgrounds/splash-background.png') no-repeat center center fixed; background-size: auto 70%; background-color: white;")
+    ui-view(name="app-view" layout-fill layout="column" id="appView")

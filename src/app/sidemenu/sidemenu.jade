@@ -1,0 +1,48 @@
+md-sidenav.md-sidenav-left.md-whiteframe-z3(flex md-component-id="left" md-is-locked-open="$mdMedia('gt-md')")
+  md-content(layout-padding ng-controller="sidemenuController")
+    md-list
+      md-list-item(ng-click="showCredits()", ng-class='{"item-light disabled" : sideMenu.loadingCredits || sideMenu.credits === 0}')
+        md-icon(md-svg-src='app/img/ic_place_black_24px.svg', fill='#666')
+        p Credits
+        span.badge.badge-important(ng-show='!sideMenu.loadingCredits && sideMenu.credits > 0') ${{ sideMenu.credits }}
+      md-divider
+
+      md-list-item(ng-click="showHomes()", ng-show='hasMultipleHomes()')
+        md-icon(md-svg-src='app/img/ic_home_black_24px.svg', fill='#666')
+        p Homes
+      md-divider
+        
+      md-list-item(ng-click="showSetupScreen({wizardType:wizardType.WELCOME}, true)")
+        md-icon(md-svg-src='app/img/ic_add_box_black_24px.svg', fill='#666')
+        p Add Home
+      md-divider
+          
+      md-list-item(ng-click="showInvitations()" ng-class='{"item-light disabled" : sideMenu.loadingInvitations || sideMenu.invitationsPending === 0}')
+        md-icon(md-svg-src='app/img/ic_email_black_24px.svg', fill='#666')
+        p Invitations
+        span.badge.badge-positive(ng-show='!sideMenu.loadingInvitations && sideMenu.invitationsPending > 0') {{ sideMenu.invitationsPending }} 
+      md-divider
+
+      md-list-item(ng-click="showNotices()", ng-class='{"item-light disabled" : sideMenu.loadingMaintenanceNotices || sideMenu.maintenanceNotesPending === 0}')
+        md-icon(md-svg-src='app/img/ic_announcement_black_24px.svg', fill='#666')
+        p Maintenance Notes
+        span.badge.badge-positive(ng-show='!sideMenu.loadingMaintenanceNotices && sideMenu.maintenanceNotesPending > 0') {{ sideMenu.maintenanceNotesPending }} 
+      md-divider
+            
+      md-list-item(ng-click="showProfile()")
+        md-icon(md-svg-src='app/img/ic_person_black_24px.svg', fill='#666')
+        p Account Profile
+      md-divider
+          
+      md-list-item(ng-click="goToHelpSite()")
+        md-icon(md-svg-src='app/img/ic_help_black_24px.svg', fill='#666')
+        p Help
+      md-divider
+          
+      md-list-item(ng-click='onLogout()')
+        md-icon(md-svg-src='app/img/ic_power_settings_new_black_24px.svg', fill='#666')
+        p Log Out
+      md-divider
+        
+      md-list-item(ng-click='onLogout()')
+        small.korner-text-center(ng-if="$mdMedia('sm')") version {{$root.appRuntime.version}}.{{$root.appRuntime.build}}{{$root.appRuntime.environment}}

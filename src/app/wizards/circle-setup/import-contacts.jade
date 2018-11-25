@@ -1,0 +1,39 @@
+
+ion-content(ng-enter="(contactsSelected)? addContacts() : -1")
+  
+  .wizard
+    .wizard-section-intro
+      p(translate) Click the box next to the name of each contact who you would like to invite to join your Security Circle.
+    
+    
+      //- search-box.item-input-inset
+      //-   .item-input-wrapper
+      //-     i.icon.ion-ios7-search.placeholder-icon
+      //-     input(type="search" placeholder="Search" ng-model="data.query")
+      //-     //- i.clear-search.icon.ion-ios7-close-empty(ng-click="clearSearch()")
+      //-   .button.button-clear.button-positive.wizard-link(ng-click="clearSearch()", translate) Cancel
+      .dashboard-section.bg-grey
+        span(translate) &nbsp Selected Contacts
+        span.pull-right.text-nowrap
+         .dashboard-section-info
+           ng-pluralize(count='totalContactsSelected' when='{"0": "None", "1": "1 Contact", "other": "{} Contacts"}')              
+      
+    ion-scroll(zooming="false", direction="y", ng-style='{height: getScrollHeight(250)}')
+      .ion-list(can-swipe="false")
+        div(ng-repeat="contact in contactsForCheckbox | filter:data.query | orderBy: 'fullname'")
+          ion-item.item-icon-left(ng-if="contact.enabled === false", ng-disabled="true")
+            i.icon.ion-email.icon-dark
+            h3 {{contact.fullname}}
+            h4 {{contact.email}}
+            
+          ion-checkbox.item(ng-if="contact.enabled", item="contact", ng-checked='contact.checked', ng-click="updateContactsSelected(contact)")
+            h3 {{contact.fullname}}
+            h4 {{contact.email}}
+        ion-infinite-scroll(ng-if="!noMoreContactsAvailable" on-infinite="loadMore()" distance="20%")
+        //- div(infinite-scroll="loadMore()", infinite-scroll-distance="3")
+ion-footer-bar
+  .row.wizard-section-intro(layout="col" layout-sm="row" layout-align="center")
+    .col.col-30.text-center.col-center
+      md-button.md-raised(flex="50" type='cancel', ng-click='closeModal()', translate) Cancel
+    .col.col-30.text-center.col-center
+      md-button.md-raised.md-primary(flex="50" ng-click='addContacts()', ng-enter='addContacts()',  ng-disabled="!contactsSelected", translate)  Save

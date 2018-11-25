@@ -1,0 +1,26 @@
+md-toolbar.md-primary(layout="row")
+  .md-toolbar-tools()
+    //- md-button(ng-click="NOOOO toggleLeft()")
+      //- img(src="app/img/korner_icon_white.png" width="35" hide-gt-md)
+    
+    div
+      img(src="app/img/korner_logo_white.png" width="200" hide-sm hide-md)
+      md-button.md-icon-button(ng-click="toggleLeft()" hide-gt-md)
+        md-icon(md-svg-src='app/img/ic_menu_white_24px.svg', fill='#666' md-show-sm)
+            
+            
+    .korner-text-center(flex)
+      h1.korner-text-color-white(translate hide-gt-sm show-sm) {{toolbar.title}}
+      img(src="app/img/korner_logo_white.png" width="150" hide-gt-md show-md show-sm ng-if="$mdMedia('gt-sm') && toolbar.showLogo === true")
+    
+    ks-fob-action-buttons(fob='fob')
+      
+md-content(layout="row" role="main" ng-style="{height: iframeHeight + 'px'}" )
+  include sidemenu/sidemenu
+  md-content(ui-view='main-content-view' layout="column" flex)
+  br
+
+div(layout)
+  md-bottom-sheet.korner-text-center(layout-align='center center' ng-if="$mdMedia('gt-sm') && $root.appRuntime.version !== null")
+    p © 2015 Copyright by PatrolTag Inc. All rights reserved. | 
+      small version {{$root.appRuntime.version}}.{{$root.appRuntime.build}}{{$root.appRuntime.environment}}

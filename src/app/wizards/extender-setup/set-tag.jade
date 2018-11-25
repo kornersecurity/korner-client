@@ -1,0 +1,49 @@
+ 
+ion-content.md-padding.wizard-selection(flex layout="column")
+  h3(translate) Tag Activation
+  p(translate) A Tag has been discovered. Please set up this tag to continue with Extender activation.
+  br
+  p(translate) Click in the space below to edit the name of the room where you installed the tag (for example "Kitchen" or "Kid's Bedroom"):
+    
+  //- .text-center
+  //-   h3 {{wizard.extenderSetup.editTagName}} {{ wizard.extenderSetup.editedTag.portal_type_name }}
+
+  form(name="myForm" novalidate='novalidate' ng-keypress='catchEnter($event)' keyboard-attach)
+    md-input-container
+      label(translate) Tag Name
+    md-input-container
+      input(type="text", name="tagName" ng-model="wizard.extenderSetup.editTagName" ng-change="wizard.extenderSetup.canSave()" required)
+      div(ng-messages="myForm.tagName.$error")
+        div.text-nowrap(ng-message="required") Tag name is required 
+        
+    md-input-container.korner-no-bottom-padding
+      label(translate) Entry Type
+    md-input-container
+      md-select(name="entryType" ng-model="wizard.extenderSetup.editPortalTypeId" ng-change="wizard.extenderSetup.portalTypeChanged()" required)
+        md-option(ng-repeat="setupType in wizard.extenderSetup.setupTypes" value="{{setupType.type_id}}") {{setupType.title}}
+      div(ng-messages="myForm.entryType.$error")
+        div.text-nowrap(ng-message="required") Entry Type is required 
+        
+    md-input-container.korner-no-bottom-padding(ng-if="wizard.extenderSetup.openingMechanisms")
+      label(translate) Opening Mechanism
+    md-input-container(ng-if="wizard.extenderSetup.openingMechanisms")
+      md-select(name="openingMechanism" ng-model="wizard.extenderSetup.editPortalMechanismId" ng-change="wizard.extenderSetup.canSave()")
+        md-option(ng-repeat="openingMechanism in wizard.extenderSetup.openingMechanisms" ng-value="openingMechanism.id") {{openingMechanism.name}}
+        
+    md-input-container
+      label(translate) Entry Characteristics
+    md-input-container
+      md-checkbox.md-primary(md-no-ink ng-model="wizard.extenderSetup.hasScreen" ng-change="wizard.extenderSetup.canSave()")
+        .wrap-text(translate) Has swinging or sliding screen <br/>(not if it is fixed)
+      md-checkbox.md-primary(md-no-ink ng-model="wizard.extenderSetup.hasBlinds" ng-change="wizard.extenderSetup.canSave()")
+        .wrap-text(translate) Has blinds, curtains, or wooden shutters
+      md-checkbox.md-primary(md-no-ink ng-model="wizard.extenderSetup.hasHorizontalBlinds" ng-if="wizard.extenderSetup.hasBlinds" ng-change="wizard.extenderSetup.canSave()")
+        .wrap-text(translate) Has horizontal blinds
+
+
+ion-footer-bar
+  .row.wizard-section-intro(layout="col" layout-sm="row" layout-align="center")
+    .col.col-30.text-center.col-center
+      md-button.md-raised(flex="50" ng-click='wizard.extenderSetup.closeTagSetup()',translate) Cancel
+    .col.col-30.text-center.col-center
+      md-button.md-raised.md-primary(flex="50" ng-click='wizard.extenderSetup.updateTag()' ng-disabled="myForm.$invalid || wizard.extenderSetup.canSaveEditedTag === false", translate) Save

@@ -1,0 +1,6 @@
+.wizard-section-intro
+  h3(translate) Opening Mechanism:
+  section.md-padding.wizard-selection(ng-repeat='mechanism in wizard.tagSetup.p3.openingMechanisms', layout, layout-align="left center")
+    ion-checkbox(layout-fill ng-model="mechanism.checked" ng-change="wizard.tagSetup.p3.openingMechanismChanged(mechanism)") 
+      h2(translate) {{mechanism.name}}
+  

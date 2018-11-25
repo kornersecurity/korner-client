@@ -1,0 +1,61 @@
+ion-content.login-bg(layout="row" layout-align="center center" ng-enter="(!registrationForm.$invalid)? onRegistration(registrationForm.$valid) : -1")
+  .padding(flex-gt-sm)
+    .text-center
+      img.hide-on-keyboard-open(src='app/img/korner_logo_white.png', width='85%',  align='middle')
+    .card(flex layout-align="left center" layout="column")
+      .item.item-divider
+        | Account Registration
+        
+      .item-body
+        include account/_alert-messages
+          
+        span.md-padding(translate) Welcome to the Korner Registration (all fields required).
+        form(role='form', name='registrationForm', novalidate='novalidate')
+          div(layout='column' layout-margin='' layout-fill='' layout-padding='')
+            md-input-container.md-input
+              label First Name
+              input(type='text', name="myFirstName" placeholder='first name', autocomplete='off', ng-model='registration.first_name', required='required')
+              div(ng-messages="registrationForm.myFirstName.$error" role="alert"  ng-show="registrationForm.myFirstName.$touched || registrationForm.myFirstName.$submitted")
+                div.text-nowrap(ng-message="required") First Name is required 
+                
+            md-input-container.md-input
+              label Last Name
+              input(type='text', name="myLastName", autocomplete='off', ng-model='registration.last_name')
+                
+            md-input-container.md-input
+              label Email
+              input(type='email', name="myEmail", autocomplete='off', ng-model='registration.email', required)
+              div(ng-messages="registrationForm.myEmail.$error" role="alert"  ng-show="registrationForm.myEmail.$touched || registrationForm.myEmail.$submitted")
+                div.text-nowrap(ng-message="required") Email is required 
+                div.text-nowrap(ng-message="email") Please enter a valid email address.
+                
+            md-input-container.md-input
+              md-label.korner-list-email.korner-text-color-light Password               
+              span.korner-info(translate) (must be at least 6 characters long, and must contain at least one uppercase letter, one lowercase letter, and one number)
+              input(type='password', name='myPassword', minLength='6', autocomplete='off', ng-model='registration.password', required, ng-pattern="passwordValidationStrongRegex")
+              div(ng-messages="registrationForm.myPassword.$error" role="alert"  ng-show="registrationForm.myPassword.$touched || registrationForm.myPassword.$submitted")
+                div.text-nowrap(ng-message="required") Password is required 
+                div.text-nowrap(ng-message="minlength") Password length (min 6) 
+                div.text-nowrap(ng-message="pattern") Password not valid
+              
+            //- ion-toggle(ng-model='registration.accept', toggle-class='toggle-calm', required='')
+          
+            md-input-container.md-input
+              label Retype Password
+              input(type='password', name="confirmPassword", autocomplete='off', ng-model='registration.confirm_password', required, compare-to="registration.password")
+              div(ng-messages="registrationForm.confirmPassword.$error" role="alert"  ng-show="registrationForm.confirmPassword.$touched || registrationForm.confirmPassword.$submitted")
+                div.text-nowrap(ng-message="required") Password is required 
+                div.text-nowrap(ng-message="minlength") Password length (min 6) 
+                div.text-nowrap(ng-message="compareTo") Password mismatch
+            //- ion-toggle(ng-model='registration.accept', toggle-class='toggle-calm', required='')
+
+            md-input-container.md-input
+              md-checkbox.label(style="color:Gray", ng-model='registration.accept', name="acceptTerms", required) I accept the terms
+              div.korner-text-left
+                md-button.md-primary.korner-small-md-button(ng-click="showTerms()") View Terms
+              div(ng-messages="registrationForm.acceptTerms.$error" role="alert"  ng-show="registrationForm.acceptTerms.$touched || registrationForm.acceptTerms.$submitted")
+                div.text-nowrap(ng-message="required") You must accept the terms 
+
+          section(layout='row', layout-align='center')
+            md-button.md-raised(id='cancelButton' ui-sref='app.account.login') Cancel
+            md-button.md-raised.md-primary(id='registerButton' ng-disabled='registrationForm.$invalid', ng-click='onRegistration(registrationForm.$valid)') Register

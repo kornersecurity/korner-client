@@ -1,0 +1,25 @@
+md-content.md-padding.login-bg(layout="row" style="overflow: auto;")
+  .padding(flex offset-gt-md="33" flex-gt-md="40")
+    .text-center
+      img(src='app/img/korner_logo_white.png', width='85%',  align='middle')
+    md-card(flex layout-align="left center" layout="column")
+      .item.item-divider
+        | Account Creation Successful
+        
+      md-card-content(flex)
+        md-content(flex)
+          p(translate) Congratulations, you have successfuly accepted and created your membership account. You can now sign in to continue.
+          br
+          p.korner-text-center
+            a(href="https://geo.itunes.apple.com/us/app/korner-security/id1006928946?mt=8")
+              img(alt="Get it on Apple" src="http://linkmaker.itunes.apple.com/images/badges/en-us/badge_appstore-lrg.png")
+            | &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+            a(href="https://play.google.com/store/apps/details?id=com.kornersafe.secure.igg")
+              img(alt="Get it on Google Play" src="https://developer.android.com/images/brand/en_generic_rgb_wo_45.png")
+          br
+          br
+          
+          section(layout='row', layout-align='center')
+            md-button.md-raised.md-primary( ui-sref='app.account.login') Continue
+
+  div(flex-gt-md)

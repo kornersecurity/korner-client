@@ -1,0 +1,30 @@
+div.korner-text-right(layout="row")
+
+  span(ng-show="fob === undefined || fob === null")
+    md-button.md-fab.md-primary.md-mini(md-theme="menuTheme", ng-click="$root.showSetupScreen({wizardType:wizardType.WELCOME})")
+      md-icon(md-svg-src='app/img/ic_add_circle_outline_white_24px.svg')
+  
+  //- disconnected or firmware updating
+  span(ng-show="(fob !== undefined && fob !== null && !fob.isConnected()) || fob.isFirmwareUpdating()")
+    md-button.md-fab.md-mini(disabled)
+      md-icon(md-svg-src='app/img/ic_cloud_off_white_24px.svg')
+
+  //- arm disarm user - connected to fob
+  span(ng-show="fob !== undefined && fob !== null && fob.isConnected() && FobService2.fobUser && FobService2.fobUser.hasArmDisarmFeature() && !fob.isFirmwareUpdating()")
+    
+    md-button.md-fab.md-primary.md-mini(md-theme="alarmTheme2", ng-if="fob.isSounding() && fob.buzzer_enabled", ng-click='FobService2.silence()')
+      md-icon(md-svg-src='app/img/ic_volume_off_white_24px.svg')
+    
+    md-button.md-fab.md-mini(md-theme="alarmTheme", ng-if="fob.tags.getCount() > 0", ng-class='{"md-primary" : fob.isDisarmed(), "md-warn" : fob.isArmed() || fob.isTriggered(), "md-accent md-hue-1" : fob.isArmPending()}', ng-click='armDisarmCancelAlert(fob)' ng-disabled="canArmSystem === false")
+      md-icon(md-svg-src='app/img/ic_lock_open_white_24px.svg', ng-if="fob.isDisarmed()")
+      md-icon(md-svg-src='app/img/ic_lock_outline_white_24px.svg', ng-if="fob.isArmed() || fob.isTriggered() || fob.isArmPending()")
+    
+  //- circle user - intrusion screen 
+  span(ng-show="fob !== undefined && fob !== null && fob.isConnected() && isIntrusionScreen && !FobService2.fobUser.hasArmDisarmFeature()")
+    md-button.md-fab.md-primary.md-mini(md-theme="menuTheme" ng-click="goToHome()")
+      md-icon(md-svg-src="app/img/ic_close_white_24px.svg")
+
+  //- circle user - chat screen w/ intrusion active 
+  span(ng-show="fob !== undefined && fob !== null && fob.isConnected() && !isIntrusionScreen && !FobService2.fobUser.hasArmDisarmFeature() && fob.isCurrentUserInvitedToIntrusion()")
+    md-button.md-fab.md-primary.md-mini(md-theme="menuTheme" ng-click="goToIntrusion()")
+      md-icon(md-svg-src="app/img/ic_announcement_white_24px.svg")

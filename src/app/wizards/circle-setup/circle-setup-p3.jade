@@ -1,0 +1,37 @@
+.wizard
+  .wizard-section-intro
+    h3(translate) Invite Contacts
+    p(translate) Enter the message you would like to send to all of your new members, or send unique messages by selecting members below. 
+
+    md-whiteframe.md-whiteframe-z3
+      .md-subhead(translate) Invitation Message &nbsp
+        span.korner-text-color-energized(translate) (editable)
+      md-input-container(flex)
+        textarea(full-size, rows=5, focus="true", ng-model="message", columns="1", md-maxlength="250")
+      //- .text-right
+        //- button.button.button-clear.button-positive.wizard-link(ng-click='inviteCircleMembers()',  ng-disabled="!inviteesSelected", translate) 
+        //-   .fa.fa-paper-plane
+        //-   | &nbspSend Invites
+    section.md-padding
+
+      md-button.md-raised.md-primary(layout-fill, ng-click='inviteCircleMembers()',  ng-disabled="!inviteesSelected", translate, style="margin: 0px;") 
+        .fa.fa-paper-plane
+        | &nbspSend Invites
+
+      br
+
+      .bg-grey
+        .row
+          .col-30.col-center.all-caps-title
+            translate New Members
+          .col.text-right.col-center.blue-text(ng-click="toggleCheckboxes()" translate) Select all&nbsp;
+            .fa.fa-lg
+              span(ng-if="checkoxesState")
+                .fa-square-o
+              span(ng-if="!checkoxesState")  
+                .fa-check-square-o
+
+      .ion-list(can-swipe="false")
+        ion-checkbox.item(ng-repeat="invitee in inviteesForCheckbox", item="invitee" ng-checked='invitee.checked', ng-click="updateInviteesSelected(invitee)")
+          h4 {{invitee.fullname}} ({{invitee.email}})
+        

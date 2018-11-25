@@ -1,0 +1,65 @@
+md-toolbar(flex md-theme="wizardTheme" ng-if="wizard.showModal === true")
+  .md-toolbar-tools
+    h2.md-flex.korner-text-color-white(translate) {{wizard.modalTitle}}
+    span(flex)
+    md-button.md-icon-button(ng-click="wizard.wizardClose()"  ng-if="wizard.showModal === false || wizard.showingSummary === true")
+      md-icon(md-svg-src="app/img/ic_close_white_24px.svg")
+        
+md-toolbar.md-primary(flex md-theme="wizardTheme" ng-if="wizard.showModal === false")
+  .md-toolbar-tools
+    //- Hack to show House Profile Title when editing fob settings
+    h2.korner-text-color-white.md-flex(ng-if="wizard.wizardManagerData.wizardType === wizardType.WELCOME || (wizard.wizardManagerData.wizardType !== wizardType.WELCOME && wizard.wizardManagerData.currentWizard.type !== wizardType.FOB_SETUP)" translate) {{wizard.wizardManagerData.currentWizard.title}}
+    h2.korner-text-color-white.md-flex(ng-if="wizard.wizardManagerData.wizardType !== wizardType.WELCOME && wizard.wizardManagerData.currentWizard.type === wizardType.FOB_SETUP" translate) House Profile
+    //- h2.korner-text-color-white.md-flex(translate) {{wizard.wizardManagerData.currentWizard.title}}
+    span(flex)
+    md-button.md-icon-button(ng-click="wizard.wizardClose()")
+      md-icon(md-svg-src="app/img/ic_close_white_24px.svg")
+        
+md-content.korner-no-scroll(id="wizardToast" layout="column" flex)
+  ion-content(layout-fill flex)
+    ui-view.korner-mobile.korner-full-height(layout-fill)
+  
+
+span.md-actions(layout="row" ng-if="wizard.showModal === false")
+  ion-footer-bar
+    .row
+      .col.col-center
+        .pull-left
+          div(ng-if='wizard.wizardManagerData.currentPage !== 1 && !wizard.showExitButton || (wizard.wizardManagerData.currentPage === 1 && !wizard.canExitWizard)')
+            .button.button-clear.button-positive(ng-click='wizard.goToPreviousPage()' ng-disabled='wizard.prevButtonDisabled') 
+              .fa.fa-arrow-left.fa-1x  
+              | &nbsp
+              translate back
+          //- div(ng-if='(wizard.wizardManagerData.currentPage === 1 && wizard.canExitWizard) || (wizard.canExitWizard && wizard.showExitButton)')
+          //-   .button.button-clear.button-positive(ng-click='wizard.wizardClose()') 
+          //-     .fa.fa-arrow-left.fa-1x  
+          //-     | &nbsp
+          //-     translate exit
+      .col.col-center.text-center  
+        .light-text {{wizard.pageCode}}
+      .col.col-center
+        .pull-right
+          div(ng-if='wizard.wizardManagerData.currentPage != wizard.wizardManagerData.totalPages')
+            .button.button-clear.button-positive(ng-click='wizard.goToNextPage()' ng-disabled='wizard.nextButtonDisabled' ng-show="wizard.nextButtonDisplayed") 
+              translate next &nbsp
+              .fa.fa-arrow-right.fa-1x  
+          div(ng-if='wizard.wizardManagerData.currentPage === wizard.wizardManagerData.totalPages')
+            .button.button-clear.button-positive(ng-click='wizard.doneClicked()' ng-disabled='wizard.doneButtonDisabled') 
+              translate done
+
+              
+
+span.md-actions(layout="row" ng-if="wizard.showingSummary === true")                        
+  ion-footer-bar
+    .row
+      .col.col-center
+        //- .pull-left
+        //-   .button.button-clear.button-positive(type='cancel', ng-if='wizard.canExitWizard' ng-click='wizard.wizardClose(true)', translate) exit
+      .col.col-center.text-center 
+        .light-text {{wizard.pageCode}}
+      .col.col-center
+        .pull-right(ng-if="!wizard.wizardManagerData.allWizardsCompleted")
+          .button.button-clear.button-positive(type='cancel', ng-click='wizard.closeSummary()', translate) next &nbsp
+            .fa.fa-arrow-right.fa-1x 
+        .pull-right(ng-if="wizard.wizardManagerData.allWizardsCompleted")
+          .button.button-clear.button-positive(type='cancel', ng-click='wizard.wizardCompleted(true)', translate) done

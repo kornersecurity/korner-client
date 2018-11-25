@@ -1,0 +1,22 @@
+md-content(flex)
+  form(name="fobConfigurationForm", novalidate ng-controller="fobConfigurationController") 
+    md-card
+      //- md-subheader.md-warn.text-center(translate) Warning changing the settings will affect how your Korner Stick behaves
+      
+      md-list
+    
+        md-list-item
+          p(translate) Intrusion Siren Enabled
+          md-switch.md-secondary(ng-model="fobConfiguration.editableFob.buzzer_enabled" ng-change='fobConfiguration.checkFobSettings()' ng-true-value='1' ng-false-value='0')
+          
+        md-list-item(ng-class='{"korner-alpha-item" : !fobConfiguration.editableFob.buzzer_enabled}')
+          p(translate) Doorchime Enabled
+          md-switch.md-secondary(ng-model="fobConfiguration.editableFob.doorchime_enabled" ng-change='fobConfiguration.checkFobSettings()' ng-true-value='1' ng-false-value='0')
+
+        md-list-item(layout-sm)
+          p(translate) Arm Delay
+          md-slider.md-primary(flex ng-model="fobConfiguration.editableFob.arm_delay" ng-change='fobConfiguration.checkFobSettings()' min='0' max='120')
+          | {{fobConfiguration.editableFob.arm_delay}}
+          
+    section(layout='row', layout-align='center')
+      md-button.md-raised.md-primary(id='updateFobConfigurationButton' ng-disabled='fobConfigurationForm.$invalid || fobConfiguration.fobSettingsChanged === false', ng-click='fobConfiguration.updateFobConfiguration()') save changes

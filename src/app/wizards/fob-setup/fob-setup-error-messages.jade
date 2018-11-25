@@ -1,0 +1,16 @@
+ul
+  li(ng-if="myForm.fobName.$error.required === true" translate) Home name is required   
+  
+  li(ng-if="myForm.line1.$error.required === true" translate) Street address is required 
+  
+  li(ng-if="myForm.country.$error.required === true" translate) Country is required 
+  
+  li(ng-if="myForm.city.$error.required === true" translate) City name is required 
+  
+  li(ng-if="myForm.stateProvince.$error.required === true" translate) State/Province is required
+   
+  li(ng-if="myForm.state.$error.required === true" translate) Sate is required 
+  
+  li(ng-if="myForm.zipcode.$error.required === true" translate) Zipcode is required 
+
+  li(ng-if="myForm.policePhoneNumber.$error.required === true" translate) Police phone number is required

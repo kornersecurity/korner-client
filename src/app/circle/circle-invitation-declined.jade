@@ -1,0 +1,24 @@
+md-content.md-padding.login-bg(layout="row" style="overflow: auto;")
+  .padding(flex offset-gt-md="33" flex-gt-md="40")
+    .text-center
+      img(src='app/img/korner_logo_white.png', width='85%',  align='middle')
+    md-card(flex layout-align="left center" layout="column")
+      .item.item-divider
+        | Invitation Declined
+        
+      md-card-content(flex)
+        md-content(flex)
+          include account/_alert-messages
+          
+          p.md-padding(translate) You have declined the invitation. If you can take a moment and the inviter know why you declined.
+          
+          form(role='form', name="declineForm", novalidate)
+            md-input-container.md-input
+              label Reason
+              input(type='text', name="myReason", autocomplete="off", ng-model="reason", required)
+              div(ng-messages="declineForm.myReason.$error"  ng-show="declineForm.myReason.$touched || declineForm.myReason.$submitted")
+                div.text-nowrap(ng-message="required") Reason is required
+                
+          section(layout='row', layout-align='center')
+            md-button.md-raised(id='cancelButton' ui-sref='app.account.login') Cancel
+            md-button.md-raised.md-primary(type='submit' ng-disabled='declineForm.$invalid' ng-click="onDecline()") Send

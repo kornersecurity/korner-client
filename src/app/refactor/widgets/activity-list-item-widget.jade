@@ -1,0 +1,12 @@
+md-list-item.md-caption
+  img.img.thumbnail24(ng-src='{{activity.imageUrl}}') 
+  p.korner-gutter {{  activity.description }}
+    span.korner-info.korner-text-color-energized(ng-if="activity.issueDescription.length > 0")
+      | &nbsp{{ activity.issueDescription }}
+    span.korner-info.korner-text-color-low-priority(ng-if="activity.infoDescription.length > 0")
+      | &nbsp ({{ activity.infoDescription }})
+    span(ng-if="activity.isPending")
+      ion-spinner(icon="lines")
+  .pull-right
+     p.korner-info.korner-text-color-low-priority
+       | {{activity.occurredAt | amDateFormat:'h:mm a'}}

@@ -1,0 +1,54 @@
+ion-content 
+  form(novalidate name="myForm" layout-fill)    
+    .wizard(ng-enter="(!myForm.$invalid)? addContact() : -1")
+      .wizard-section-intro        
+        md-input-container
+          label First Name
+          input(type="text", name="firstName" ng-model="newUserData.first_name", required)
+          div(ng-messages="myForm.firstName.$error")
+            div.text-nowrap(ng-message="required") First name is required
+            
+        md-input-container
+          label Last Name
+          input(type="text", name="lastName" ng-model="newUserData.last_name")
+            
+        md-input-container(ng-if="newUserData.fob_user_status_id !== fobUserStatusConst.STATUS_ACTIVE")
+          label E-mail Address
+          input(type="email",id="email", name="myEmail" ng-model="newUserData.email", required)
+          div(ng-messages="myForm.myEmail.$error")
+            div.text-nowrap(ng-message="required") A valid email address is required.
+            div.text-nowrap(ng-message="email") Please enter a valid email address.
+            
+        md-card(ng-if="newUserData.fob_user_status_id === fobUserStatusConst.STATUS_ACTIVE")
+          .korner-md-card-getter 
+            .md-subhead(translate) User Privileges
+            p(translate) For housemates, selecting all recommended
+          br
+          md-list
+            //- md-list-item
+            //-   p(translate) Houshold Member
+            //-   md-switch.md-secondary(ng-model="featureMaskData.householdMemberFeature" ng-change='toggleHouseholdMemberFeature()')
+            //-     
+            md-list-item
+              h6(translate) Immediate Intrusion Notification
+              md-switch.md-secondary(ng-model="featureMaskData.immediateIntrusionNotificationFeature" ng-change='toggleImmediateIntrusionNotificationFeature()')  
+          
+            md-list-item
+              h6(translate) Arm Disarm System
+              md-switch.md-secondary(ng-model="featureMaskData.armDisarmFeature" ng-change='toggleArmDisarmFeature()')
+                
+            md-list-item
+              h6(translate) View Basic System Activity
+              md-switch.md-secondary(ng-model="featureMaskData.basicActivityFeature" ng-change='toggleBasicActivityFeature()')
+   
+            md-list-item
+              h6(translate) On - Manual Notification Forwarding <br/>Off - Auto-forward Notification after 2 min
+              md-switch.md-secondary(ng-model="featureMaskData.IntrusionFeature" ng-change="toggleIntrusionFeature()")
+                      
+ion-footer-bar
+  .row.wizard-section-intro(layout="col" layout-sm="row" layout-align="center")
+    .col.col-30.text-center.col-center
+      md-button.md-raised(flex="50" ng-click='closeModal()', translate) Cancel
+    .col.col-30.text-center.col-center
+      md-button.md-raised.md-primary(flex="50" ng-click="addContact()" ng-enter='addContact()' ng-disabled="myForm.$invalid", translate) Save
+  
