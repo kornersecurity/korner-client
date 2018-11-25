@@ -1,5 +1,5 @@
 {
-  "selectedEnvironment": "test",
+  "selectedEnvironment": "prod",
   "local": {
     "appSettingsConst": {
       "httpProtocol": "http://",
@@ -37,7 +37,7 @@
     "appSettingsConst": {
       "httpProtocol": "https://",
       "socketProtocol": "wss://",
-      "endPoint": "secure.kornersafe.com",
+      "endPoint": "secure2.kornersafe.com",
       "webEndPoint": "myhome.kornersafe.com",
       "debug": false,
       "maps": false,

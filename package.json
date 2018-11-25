@@ -1,7 +1,7 @@
 {
   "name": "korner",
-  "version": "1.0.19",
-  "build": 185,
+  "version": "1.0.20",
+  "build": 188,
   "description": "Korner Safe dependencies",
   "dependencies": {
     "cheerio": "^0.19.0",
@@ -80,9 +80,9 @@
     "cordova-plugin-contacts",
     "cordova-plugin-crosswalk-webview",
     "com.ionic.keyboard",
-    "com.phonegap.plugins.barcodescanner",
     "https://github.com/phonegap-build/PushPlugin.git",
-    "https://github.com/rockycaamano/cordova-plugin-file-transfer.git", {
+    "https://github.com/rockycaamano/cordova-plugin-file-transfer.git",
+    {
       "locator": "https://github.com/rockycaamano/cordova-plugin-file-transfer.git",
       "id": "cordova-plugin-file-transfer"
     },
@@ -94,10 +94,19 @@
     "cordova-plugin-contacts@^1.0.0",
     "cordova-plugin-geolocation",
     "cordova-plugin-transport-security",
-    "cordova-plugin-transport-security@~0.1.0"
+    "cordova-plugin-transport-security@~0.1.0",
+    "https://github.com/wildabeast/BarcodeScanner.git"
   ],
   "cordovaPlatforms": [
-    "android",
-    "ios"
+    {
+      "platform": "android",
+      "version": "4.0.0",
+      "locator": "android@4.0.0"
+    },
+    {
+      "platform": "ios",
+      "version": "3.8.0",
+      "locator": "ios@3.8.0"
+    }
   ]
 }

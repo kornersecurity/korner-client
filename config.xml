@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="1019185" build="185" id="com.kornersafe.secure.igg" version="1.0.19" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget android-versionCode="1020188" build="188" id="com.kornersafe.secure.igg" version="1.0.20" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Korner Security</name>
     <description>PatrolTag Inc.</description>
     <author email="info@kornersafe.com" href="https://myhome.kornersafe.com/">
