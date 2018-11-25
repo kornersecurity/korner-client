@@ -1,0 +1,15 @@
+# macOS
+.DS_Store
+__MACOSX
+
+# Node
+npm-debug.log
+/node_modules
+
+# Cordova
+/platforms
+/plugins
+/www
+
+# Bower
+/src/bower_components
