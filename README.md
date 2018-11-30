@@ -7,7 +7,7 @@ The client is written using Javascript using the IonicFramework.
 ### First time setup
 Install node.js 4.x
 
-Install global npm packages:
+Install global npm packages:  
 `sudo npm install -g cordova@5.2.0`  
 `sudo npm install -g ionic@1.5`  
 `sudo npm install -g protractor`  
