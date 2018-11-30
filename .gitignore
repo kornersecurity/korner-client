@@ -13,3 +13,4 @@ npm-debug.log
 
 # Bower
 /src/bower_components
+/bower_components
