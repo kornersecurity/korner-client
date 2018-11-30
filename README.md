@@ -8,24 +8,24 @@ The client is written using Javascript using the IonicFramework.
 Install node.js 4.x
 
 Install global npm packages:
-`sudo npm install -g cordova@5.2.0`
-`sudo npm install -g ionic@1.5`
-`sudo npm install -g protractor`
-`sudo npm install -g gulp`
+`sudo npm install -g cordova@5.2.0` 
+`sudo npm install -g ionic@1.5` 
+`sudo npm install -g protractor` 
+`sudo npm install -g gulp` 
 
 ### Prepare workspace
 Perform these steps if building for the first time, or if doing a clean build. It takes quite a while, be patient!
 
-`mkdir www`
-`npm install`
-`bower install --config.interactive=false`
+`mkdir www` 
+`npm install` 
+`bower install --config.interactive=false` 
 
-`ionic platform add ios@3.8.0`
+`ionic platform add ios@3.8.0` 
 
 ### Build (iOS)
-`gulp build`
+`gulp build` 
 
-`ionic build ios --stacktrace --release --device`
+`ionic build ios --stacktrace --release --device` 
 
 ### Manual changes
 Open the project in Xcode and perform these manual changes. The project is located at `platforms/ios/Korner Security.xcodeproj`
